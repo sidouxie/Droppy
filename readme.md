@@ -1,2 +1,2 @@
-## Nouveau Projet Next Js & GraphqlCms 
-# **  La performance avant tout.  **
+# Nouveau Projet Next Js & GraphqlCms 
+##  La performance avant tout.  
