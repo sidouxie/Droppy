@@ -1,15 +1,18 @@
 import Link from 'next/link'
+import { useState } from 'react';
 
-const  Nav = ( props ) => {
+const Nav = (props) => {
+    const [Show, setShow] = useState(false);
+
     return (
 <>
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <Link href="/"><a className="navbar-brand">LOGO</a></Link>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="/navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{display : 'flex'}}>
+        <Link href="/"><a className="navbar-brand" style={{flexGrow : '1', textAlign: 'center'}}>LOGO</a></Link>
+        <button className="navbar-toggler" onClick={() => setShow(!Show)} >
             <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarColor03">
+                <div className={`collapse navbar-collapse ${Show && 'show'}`} style={{ flexGrow: '0', marginRight: '5em', fontWeight: '700', fontSize: '1.4em'}} id="navbarColor03">
             <ul className="navbar-nav mr-auto">
                 <li className="nav-item ml-5 active">
                     <Link href="/"><a className="nav-a">Acceuil</a></Link>
