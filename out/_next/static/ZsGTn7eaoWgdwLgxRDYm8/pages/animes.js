@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{"7rIk":function(n,e,u){"use strict";u.r(e);var r=u("q1tI"),i=u.n(r),t=u("5Yp1"),w=i.a.createElement;e.default=function(){return w(t.a,null,w("h1",null,"Bienvenue sur la page Animes."))}},Wwrg:function(n,e,u){(window.__NEXT_P=window.__NEXT_P||[]).push(["/animes",function(){return u("7rIk")}])}},[["Wwrg",0,2,1,3]]]);

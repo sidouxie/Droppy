@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{K2eO:function(n,e,u){(window.__NEXT_P=window.__NEXT_P||[]).push(["/filmes",function(){return u("ac2Z")}])},ac2Z:function(n,e,u){"use strict";u.r(e);var i=u("q1tI"),t=u.n(i),a=u("5Yp1"),c=t.a.createElement;e.default=function(){return c(a.a,null,c("h1",null,"Bienvenue sur la page Filmes"))}}},[["K2eO",0,2,1,3]]]);

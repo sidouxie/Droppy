@@ -1,0 +1,1 @@
+self.__BUILD_MANIFEST = (function(a){return {"/":[a],"/a-propos":[a],"/animes":[a],"/filmes":[a],"/filmes/[slug]":[a],"/index":[a],"/series":[a]}}("static\u002Fchunks\u002F8a333f8abaa3efaf2d5eed7ffbe1dc315815e757.cc632e1bd2222375707c.js"));self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()

@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[13],{Wzjo:function(n,e,u){(window.__NEXT_P=window.__NEXT_P||[]).push(["/series",function(){return u("y/YB")}])},"y/YB":function(n,e,u){"use strict";u.r(e);var i=u("q1tI"),o=u.n(i),t=u("5Yp1"),r=o.a.createElement;e.default=function(){return r(t.a,null,r("h1",null,"Bienvenue sur la page S\xe9ries"))}}},[["Wzjo",0,2,1,3]]]);

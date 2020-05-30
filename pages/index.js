@@ -1,8 +1,10 @@
 import  Link  from 'next/link';
 import { GraphQLClient } from 'graphql-request';
+import Layout from '../components/Layout';
+
 
 export async function getStaticProps() {
-    const graphcms = new GraphQLClient("https://api-eu-central-1.graphcms.com/v2/ckarbp7t00za601xqca9ygwq9/master"); 
+    const graphcms = new GraphQLClient(process.env.API_URL); 
 
     const { filmes } = await graphcms.request(
         `
@@ -25,8 +27,8 @@ export async function getStaticProps() {
 }
 
 export default ({ filmes }) =>
-<>
-    <div>
+<Layout>
+        <div>
         <ul>
             {filmes.map(({ slug, title }) => (
                 <li key={slug}>
@@ -36,4 +38,4 @@ export default ({ filmes }) =>
                 ))} 
         </ul>
     </div>
-</>
+</Layout>

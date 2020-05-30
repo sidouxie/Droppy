@@ -1,6 +1,8 @@
 import { GraphQLClient } from 'graphql-request';
+import Layout from '../../components/Layout';
+import Head from 'next/head';
 
-const graphcms = new GraphQLClient("https://api-eu-central-1.graphcms.com/v2/ckarbp7t00za601xqca9ygwq9/master");
+const graphcms = new GraphQLClient(process.env.API_URL);
 
 export async function getStaticProps({ params }) {
     const { filme } = await graphcms.request(`
@@ -51,14 +53,18 @@ export async function getStaticPaths() {
 }
 
 export default ({ filme }) => (
+    
     <React.Fragment>
-        <h1> {filme.title} </h1>
-        <p><strong>Catégorie</strong> : {filme.category} </p>
-        <p><strong>Réalisateur</strong> :  {filme.scenario} </p>
-        <p><strong>Durée du filme</strong> :  {filme.duree} Min. </p>
-        <p><strong>Résumé</strong> :  {filme.description} </p>
-        <p><strong>Année de sortie</strong> :  {filme.year} </p>
-        <img src={filme.cover.url} alt={filme.cover.fileName} />
-
-    </React.Fragment>
+        <Layout>
+            <Head><title>Droppy - Regardez {filme.title} en VF streaming gratuit.</title></Head>
+                <h1> {filme.title} </h1>
+                <p><strong>Catégorie</strong> : {filme.category} </p>
+                <p><strong>Réalisateur</strong> :  {filme.scenario} </p>
+                <p><strong>Durée du filme</strong> :  {filme.duree} Min. </p>
+                <p><strong>Résumé</strong> :  {filme.description} </p>
+                <p><strong>Année de sortie</strong> :  {filme.year} </p>
+                <img src={filme.cover.url} alt={filme.cover.fileName} />
+        </Layout>
+        </React.Fragment>
+        
 )
