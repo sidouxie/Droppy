@@ -1,6 +1,7 @@
 import Nav from './Nav';
 import Head from 'next/head'
 
+
 const Layout = ( props ) => {
     return (
         <>
@@ -11,12 +12,7 @@ const Layout = ( props ) => {
 
             <Nav />
 
-            <div className="container">
-                <div className="row">
-                <div className="md5">{ props.children }</div>
-                </div>
-            </div>
-            
+            { props.children }
             
         </>
     )

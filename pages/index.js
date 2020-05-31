@@ -27,8 +27,19 @@ export async function getStaticProps() {
 }
 
 export default ({ filmes }) =>
-<Layout>
-        <div>
+    <Layout>
+        <div className="fluid">
+            <div className="image-fluid">
+                <div id='bgImage' className="img-fluid"></div>
+                <div className="sectionText">
+                    <h1>Droppy site streaming gratuit</h1>
+                </div>
+            </div>
+        </div>
+        
+       <div className="container">
+            <div className="row">
+            <div>
         <ul>
             {filmes.map(({ slug, title }) => (
                 <li key={slug}>
@@ -38,4 +49,6 @@ export default ({ filmes }) =>
                 ))} 
         </ul>
     </div>
+           </div>
+       </div>
 </Layout>
