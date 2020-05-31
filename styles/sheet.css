@@ -1,6 +1,3 @@
-h1 {
-    color: #dd9797;
-}
 body{
     background-color: #fafafa;
     overflow-x: hidden;
@@ -11,21 +8,19 @@ body{
     background-size: cover;
     width: 100vw;
     z-index: -10;
+    filter: brightness(45%);
 }
 
 .image-fluid{
     display: flex;
     position: relative;
     width: 100vw;
-    height: 80vh;
+    height: 90vh;
 }
 
 .navbar.bg-light {
     background-color: #2125297a !important;
     width: -webkit-fill-available;
     position: fixed;
-}
-
-.sectionText{
-    position: relative;
+    z-index: 10;
 }
