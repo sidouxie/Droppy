@@ -1,6 +1,8 @@
 import  Link  from 'next/link';
 import { GraphQLClient } from 'graphql-request';
 import Layout from '../components/Layout';
+import Carousel, { Dots } from '@brainhubeu/react-carousel';
+
 
 
 export async function getStaticProps() {
@@ -12,7 +14,10 @@ export async function getStaticProps() {
                 filmes {
                     title
                     slug
-                   
+                    cover {
+                        id
+                        url
+                    }
                 }
             }
         `
@@ -25,6 +30,7 @@ export async function getStaticProps() {
         },
     };
 }
+
 
 export default ({ filmes }) =>
     <Layout>
@@ -40,19 +46,15 @@ export default ({ filmes }) =>
         </div>
 
 
-        <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
-            <div className="carousel-inner">
-                <div className="carousel-item active">
-                <img className="d-block w-50" src="https://colorlib.com/wp/wp-content/uploads/sites/2/bootstrap-4-carousel-800x547.jpg" alt="First slide" />
-                </div>
-                <div className="carousel-item">
-                <img className="d-block w-50" src="https://colorlib.com/wp/wp-content/uploads/sites/2/bootstrap-4-carousel-800x547.jpg" alt="Second slide" />
-                </div>
-                <div className="carousel-item">
-                <img className="d-block w-50" src="https://colorlib.com/wp/wp-content/uploads/sites/2/bootstrap-4-carousel-800x547.jpg" alt="Third slide" />
-                </div>
-                </div>           
-        </div>  
+        <Carousel
+            slidesPerPage={3}
+            arrows
+            infinite
+        >
+            {filmes.map(({ title, slug, cover }) => (
+            <Link key={slug} href={`/filmes/${slug}`} ><img className="carouselCard" key={slug} src={cover.url} alt={title} /></Link>
+        ))}
+        </Carousel>  
 
 
        <div className="container">

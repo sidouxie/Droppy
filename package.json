@@ -11,6 +11,7 @@
   "author": "Sidouxie",
   "license": "MIT",
   "dependencies": {
+    "@brainhubeu/react-carousel": "^1.16.2",
     "@zeit/next-sass": "^1.0.1",
     "graphql-request": "^2.0.0",
     "next": "^9.4.4",
