@@ -29,7 +29,7 @@
 }
 
 .carouselCard{
-    width: 100%;
+    width: 280px;
     height: 320px;
     cursor: pointer;
 }
@@ -53,6 +53,10 @@
 
 .section-info{
     margin-top: 5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
 
     h1 ,strong{
         color: #fff;
