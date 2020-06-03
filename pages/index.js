@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 import { GraphQLClient } from 'graphql-request';
 import Layout from '../components/Layout';
@@ -14,6 +15,8 @@ export async function getStaticProps() {
                 filmes {
                     title
                     slug
+                    category
+                    year
                     cover {
                         id
                         url
@@ -45,14 +48,22 @@ export default ({ filmes }) =>
             </div>
         </div>
 
-
+        <div className="titre-desc">
+            <h3>Filmes en tendances : </h3>
+        </div>
         <Carousel
             slidesPerPage={3}
             arrows
             infinite
         >
-            {filmes.map(({ title, slug, cover }) => (
-            <Link key={slug} href={`/filmes/${slug}`} ><img className="carouselCard" key={slug} src={cover.url} alt={title} /></Link>
+            {filmes.map(({ title, slug, cover, category, year }) => (
+                <div key={slug}>
+                    <Link key={slug} href={`/filmes/${slug}`} ><img className="carouselCard" key={slug} src={cover.url} alt={title} /></Link>
+                    <div className="info-card">
+                    <h5> {title} </h5>
+                    <p> {category}, {year}</p>
+                </div>
+                </div>
         ))}
         </Carousel>  
 
