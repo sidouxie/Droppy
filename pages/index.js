@@ -3,8 +3,12 @@ import Link from 'next/link';
 import { GraphQLClient } from 'graphql-request';
 import Layout from '../components/Layout';
 import Carousel, { Dots } from '@brainhubeu/react-carousel';
+import dynamic from 'next/dynamic';
 
 
+const useMediaQuery = () => {dynamic(() => import('react-hook-media-query'), { ssr: false } ) ;}
+
+const setResize = useMediaQuery('(max-width: 500px)');
 
 export async function getStaticProps() {
     const graphcms = new GraphQLClient(process.env.API_URL); 
@@ -35,6 +39,8 @@ export async function getStaticProps() {
 }
 
 
+
+
 export default ({ filmes }) =>
     <Layout>
         <div className="fluid">
@@ -52,7 +58,7 @@ export default ({ filmes }) =>
             <h3>Filmes en tendances : </h3>
         </div>
         <Carousel
-            slidesPerPage={3}
+            slidesPerPage={setResize ? 1 : 3}
             arrows
             infinite
         >
@@ -61,7 +67,8 @@ export default ({ filmes }) =>
                     <Link key={slug} href={`/filmes/${slug}`} ><img className="carouselCard" key={slug} src={cover.url} alt={title} /></Link>
                     <div className="info-card">
                     <h5> {title} </h5>
-                    <p> {category}, {year}</p>
+                        <p> {category}, {year}</p>
+                       
                 </div>
                 </div>
         ))}
@@ -82,4 +89,4 @@ export default ({ filmes }) =>
     </div>
            </div>
        </div>
-</Layout>
+    </Layout>
