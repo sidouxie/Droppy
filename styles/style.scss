@@ -29,26 +29,9 @@
 }
 
 .carouselCard{
-    width: 280px;
-    height: 320px;
+    width: 375px;
+    height: 360px;
     cursor: pointer;
-}
-
-.BrainhubCarousel__arrows{
-    position: absolute !important;
-    
-}
-.BrainhubCarousel__arrowLeft{
-    left: 0 !important;
-    z-index: 1 !important;
-}
-.BrainhubCarousel__arrowRight{
-    right: 0 !important;
-    z-index: 1 !important ;
-}
-
-.BrainhubCarousel__container{
-    margin: 2em auto !important;
 }
 
 .section-info{
@@ -69,6 +52,13 @@
 .titre-desc{
     color: #fff;
     margin: 2em 0 0 1em; 
+}
+
+.container-card{
+    background-color: rgb(12, 14, 19);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .info-card{

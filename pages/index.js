@@ -2,13 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import { GraphQLClient } from 'graphql-request';
 import Layout from '../components/Layout';
-import Carousel, { Dots } from '@brainhubeu/react-carousel';
-import dynamic from 'next/dynamic';
+import Carousel from 'react-multi-carousel';
 
-
-const useMediaQuery = () => {dynamic(() => import('react-hook-media-query'), { ssr: false } ) ;}
-
-const setResize = useMediaQuery('(max-width: 500px)');
 
 export async function getStaticProps() {
     const graphcms = new GraphQLClient(process.env.API_URL); 
@@ -38,7 +33,25 @@ export async function getStaticProps() {
     };
 }
 
-
+const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
 
 
 export default ({ filmes }) =>
@@ -58,12 +71,14 @@ export default ({ filmes }) =>
             <h3>Filmes en tendances : </h3>
         </div>
         <Carousel
-            slidesPerPage={setResize ? 1 : 3}
-            arrows
-            infinite
+            responsive={responsive}
+            ssr
+            infinite={false}
+            swipeable={true}
+            draggable={true}
         >
             {filmes.map(({ title, slug, cover, category, year }) => (
-                <div key={slug}>
+                <div key={slug} className="container-card">
                     <Link key={slug} href={`/filmes/${slug}`} ><img className="carouselCard" key={slug} src={cover.url} alt={title} /></Link>
                     <div className="info-card">
                     <h5> {title} </h5>
