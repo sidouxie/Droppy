@@ -1,0 +1,25 @@
+@media screen and (max-width: 400px) {
+    .bg-hero {
+        min-width: min-content;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .section-info{
+        flex-direction: column !important;
+    }
+
+    .section-one{
+        margin-left: 0 !important;
+    }
+}
+
+
+
+
+@media screen and (min-width: 1000px) {
+    .bg-hero img{
+        min-inline-size: -webkit-fill-available !important;
+    }
+}

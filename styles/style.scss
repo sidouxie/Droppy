@@ -1,4 +1,6 @@
 @import 'anim';
+@import 'responsive';
+@import 'normalize';
 
 
 .sectionText{
@@ -37,16 +39,25 @@
 .section-info{
     margin-top: 5em;
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     align-items: center;
-    padding: 1em;
 
-    h1 ,strong{
+    h2 ,strong{
         color: #fff;
     }
     p{
         color: rgba(255,255,255,0.6);
     }
+
+    img{
+        width: 400px;
+    }
+}
+
+.section-one{
+    flex-direction: column;
+    margin-left: 4em;
+    padding: 1em;
 }
 
 .titre-desc{
@@ -71,5 +82,17 @@
     }
     p{
         color: rgba(255,255,255,0.6);
+    }
+}
+
+.bg-hero{
+    height: 50vh;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+
+    img{
+        min-width: -webkit-fill-available;
+        filter: blur(10px) brightness(50%);
     }
 }
