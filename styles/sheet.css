@@ -22,9 +22,10 @@ body{
     height: 90vh;
 }
 
-.navbar.bg-light {
-    background-color: #2125297a !important;
+.navbar.bg-dark {
+    background-color: #212529d4 !important;
     width: 100%;
     position: fixed;
     z-index: 10;
+    filter: drop-shadow(1px 1px 2px black);
 }
