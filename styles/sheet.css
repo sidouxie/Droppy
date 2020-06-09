@@ -3,6 +3,10 @@ body{
     overflow-x: hidden;
 }
 
+.min-Width{
+    min-width: auto;
+}
+
 #bgImage{
     background-image: url(../images/dark-s3.jpg);
     background-size: cover;
@@ -20,7 +24,7 @@ body{
 
 .navbar.bg-light {
     background-color: #2125297a !important;
-    width: -webkit-fill-available;
+    width: 100%;
     position: fixed;
     z-index: 10;
 }
