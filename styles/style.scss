@@ -61,6 +61,10 @@
     margin-left: 4em;
     padding: 1em;
     font-size: larger;
+
+    h3{
+        color: #fff;
+    }
 }
 
 .section-two{
@@ -106,6 +110,10 @@
         width: inherit;
         filter: blur(10px) brightness(50%);
     }
+}
+
+.section-vid{
+    padding: 1em;
 }
 
 .player-wrapper {

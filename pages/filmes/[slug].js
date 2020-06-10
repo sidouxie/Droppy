@@ -75,17 +75,26 @@ export default ({ filme }) => (
                     </div>
                     <div className="section-two"><img src={filme.cover.url} alt={filme.cover.fileName} /></div>
                     </div>
-                    
-                    <div className='player-wrapper'>
-                        <ReactPlayer
-                            className='react-player'
-                            url={filme.apiurl}
-                            width='100%'
-                            height='100%'
-                            />
+                </div>
+            </div>
+            <div>
+                <div className="section-info">
+                    <div className="section-one">
+                        <h3>Bande d'annonce : {filme.title} en VF </h3>
                     </div>
                 </div>
-                </div>
+                <div className="section-vid">
+                    <div className='player-wrapper'>
+                            <ReactPlayer
+                                className='react-player'
+                                url={filme.apiurl}
+                                width='100%'
+                                height='100%'
+                                controls
+                                />
+                        </div>
+            </div>
+            </div>
         </Layout>
         </React.Fragment>
         
