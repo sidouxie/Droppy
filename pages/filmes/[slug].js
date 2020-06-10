@@ -1,6 +1,7 @@
 import { GraphQLClient } from 'graphql-request';
 import Layout from '../../components/Layout';
 import Head from 'next/head';
+import ReactPlayer from 'react-player/youtube';
 
 const graphcms = new GraphQLClient(process.env.API_URL);
 
@@ -14,6 +15,7 @@ export async function getStaticProps({ params }) {
                 scenario
                 category
                 duree
+                apiurl
                 cover {
                     id
                     url
@@ -72,7 +74,16 @@ export default ({ filme }) => (
                 <p><strong>Année de sortie</strong> :  {filme.year} </p>
                     </div>
                     <div className="section-two"><img src={filme.cover.url} alt={filme.cover.fileName} /></div>
-                </div>
+                    </div>
+                    
+                    <div className='player-wrapper'>
+                        <ReactPlayer
+                            className='react-player'
+                            url={filme.apiurl}
+                            width='100%'
+                            height='100%'
+                            />
+                    </div>
                 </div>
                 </div>
         </Layout>
