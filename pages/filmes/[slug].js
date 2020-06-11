@@ -1,7 +1,7 @@
 import { GraphQLClient } from 'graphql-request';
 import Layout from '../../components/Layout';
 import Head from 'next/head';
-import ReactPlayer from 'react-player/youtube';
+import ReactPlayer from 'react-player';
 
 const graphcms = new GraphQLClient(process.env.API_URL);
 
