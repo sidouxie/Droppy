@@ -80,7 +80,7 @@ export default ({ filme }) => (
             <div>
                 <div className="section-info">
                     <div className="section-one">
-                        <h3>Bande d'annonce : {filme.title} en VF </h3>
+                        <h3>Filme : {filme.title} en VF </h3>
                     </div>
                 </div>
                 <div className="section-vid">
