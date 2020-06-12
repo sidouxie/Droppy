@@ -16,6 +16,7 @@ export async function getStaticProps({ params }) {
                 category
                 duree
                 apiurl
+                poster
                 cover {
                     id
                     url
@@ -88,6 +89,7 @@ export default ({ filme }) => (
                             <ReactPlayer
                                 className='react-player'
                                 url={filme.apiurl}
+                                light={filme.poster}
                                 width='100%'
                                 height='100%'
                                 controls
