@@ -85,17 +85,8 @@ export default ({ filme }) => (
                     </div>
                 </div>
                 <div className="section-vid">
-                    <div className='player-wrapper'>
-                            <ReactPlayer
-                                className='react-player'
-                                url={filme.apiurl}
-                                light={filme.poster}
-                                width='100%'
-                                height='100%'
-                                controls
-                                />
-                        </div>
-            </div>
+                        <iframe style={{width: "100%"}} src={`https://embed.mystream.to/${filme.apiurl}`} scrolling="no" frameborder="0" width="700" height="420" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>    
+                    </div>
             </div>
         </Layout>
         </React.Fragment>
