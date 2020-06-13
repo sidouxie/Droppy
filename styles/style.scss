@@ -89,13 +89,16 @@
 .info-card{
     display: flex;
     flex-direction: column;
-    padding: 1em 0;
+    padding: 1em;
+    text-align: center;
 
     h5{
         color: #fff;
+        font-size: medium;
     }
     p{
         color: rgba(255,255,255,0.6);
+        font-size: small;
     }
 }
 
