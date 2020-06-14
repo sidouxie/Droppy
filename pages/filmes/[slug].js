@@ -85,8 +85,8 @@ export default ({ filme }) => (
                     </div>
                 </div>
                 <div className="section-vid">
-                        <iframe style={{width: "100%"}} src={`https://embed.mystream.to/${filme.apiurl}`} scrolling="no" frameborder="0" width="700" height="420" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>    
-                    </div>
+                    <iframe style={{width: "100%"}} src={`https://embed.mystream.to/${filme.apiurl}`} scrolling="no" frameborder="0" width="700" height="420" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>    
+                </div>
             </div>
         </Layout>
         </React.Fragment>
