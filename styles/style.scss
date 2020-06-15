@@ -31,9 +31,10 @@
 }
 
 .carouselCard{
-    width: 375px;
+    width: 370px;
     height: 360px;
     cursor: pointer;
+    align-self: center;
 }
 
 .section-info{
@@ -73,7 +74,7 @@
 
 .titre-desc{
     color: #fff;
-    margin: 2em 0 0 1em; 
+    margin: 2em 0 2em 1em; 
 }
 
 .container-card{
