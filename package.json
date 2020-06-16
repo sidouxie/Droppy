@@ -6,6 +6,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next",
+    "deploy": "gh-pages -d .",
     "start": "next start"
   },
   "author": "Sidouxie",
@@ -22,6 +23,7 @@
     "react-player": "^2.2.0"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "gh-pages": "^3.0.0"
   }
 }
