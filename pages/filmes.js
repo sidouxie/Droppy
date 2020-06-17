@@ -3,7 +3,11 @@ import Layout from '../components/Layout'
 function filmes() {
     return (
         <Layout>
-            <h1>Bienvenue sur la page Filmes</h1>
+            <div className="container-fluid">
+                <div className="row">
+                    <h1>Bienvenue sur la page Filmes</h1>
+                </div>
+            </div>
         </Layout>
     )
 }
