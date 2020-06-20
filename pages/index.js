@@ -17,7 +17,6 @@ export async function getStaticProps() {
                     category
                     year
                     cover {
-                        id
                         url
                     }
                 }
@@ -79,7 +78,7 @@ export default ({ filmes }) =>
         >
             {filmes.map(({ title, slug, cover, category, year }) => (
                 <div key={slug} className="container-card">
-                    <Link key={slug} href={`/filmes/${slug}`} ><img className="carouselCard" key={cover.id} src={cover.url} alt={title} /></Link>
+                    <Link href={`/filmes/${slug}`} ><img className="carouselCard" src={cover.url} alt={title} /></Link>
                     <div className="info-card">
                     <h5> {title} </h5>
                         <p> {category}, {year}</p>
