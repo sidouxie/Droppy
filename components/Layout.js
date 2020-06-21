@@ -1,5 +1,6 @@
+import React from 'react';
 import Nav from './Nav';
-import Head from 'next/head'
+import Head from 'next/head';
 
 
 const Layout = ( props ) => {
