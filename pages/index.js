@@ -52,9 +52,11 @@ const responsive = {
     }
   };
 
+export const FilmesContext = React.createContext();
 
 export default ({ filmes }) =>
-    <Layout>
+    <FilmesContext.Provider value={ filmes } >
+        <Layout>
         <div className="fluid">
             <div className="image-fluid">
                 <div id='bgImage' className="img-fluid"></div>
@@ -104,3 +106,4 @@ export default ({ filmes }) =>
            </div>
        </div>
     </Layout>
+    </FilmesContext.Provider>

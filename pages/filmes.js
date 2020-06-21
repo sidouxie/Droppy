@@ -1,45 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { GraphQLClient } from 'graphql-request';
 import Downshift from 'downshift';
 import Layout from '../components/Layout';
 
-export async function getStaticProps() {
-    const graphcms = new GraphQLClient(process.env.API_URL);
 
-    const { filmes } = await graphcms.request(`
-        {
-            filmes {
-                id
-                title
-                slug
-                description
-                year
-                scenario
-                category
-                duree
-                apiurl
-                poster
-                cover {
-                    id
-                    url
-                    fileName
-                }
-            }
-        }
-    `)
-
-    return {
-        props: {
-            filmes,
-        },
-    };
-};
-
-
-
-
-function filmes({filmes}) {
+function Filmes() {
     return (
         <Layout>
             <div className="container-fluid">
@@ -52,7 +17,7 @@ function filmes({filmes}) {
                 onChange={selection =>
                 (selection ? `You selected ${selection.value}` : 'Selection Cleared')
                 }
-                itemToString={filmes => (filmes ? filmes.title : '')}
+                itemToString={Data => (Data ? Data.title : '')}
             >
                 {({
                 getInputProps,
@@ -66,7 +31,7 @@ function filmes({filmes}) {
                 getRootProps,
                 }) => (
                 <div>
-                    <label {...getLabelProps()}>Veuillez entrer votre filmes : </label>
+                    <label {...getLabelProps()}>Veuillez entrer votre Data : </label>
                     <div
                     style={{display: 'inline-block'}}
                     {...getRootProps({}, {suppressRefError: true})}
@@ -75,25 +40,25 @@ function filmes({filmes}) {
                     </div>
                     <ul {...getMenuProps()}>
                     {isOpen
-                        ? filmes
-                            .filter(filmes => !inputValue.toLowerCase() || filmes.title.toLowerCase().includes(inputValue))
+                        ? Data
+                            .filter(Data => !inputValue.toLowerCase() || Data.title.toLowerCase().includes(inputValue))
                             .slice(0, 10)
-                            .map((filmes, index) => (
+                            .map((Data, index) => (
                             <li
                                 {...getItemProps({
-                                    key: filmes.slug,
-                                    item: filmes.title,
-                                    itemID: filmes.id,
+                                    key: Data.slug,
+                                    item: Data.title,
+                                    itemID: Data.id,
                                     index,
-                                    filmes,
+                                    Data,
                                     style: {
                                         backgroundColor:
                                         highlightedIndex === index ? 'lightgray' : 'white',
-                                        fontWeight: selectedItem === filmes ? 'bold' : 'normal',
+                                        fontWeight: selectedItem === Data ? 'bold' : 'normal',
                                 },
                                 })}
                             >
-                                <Link href={`/filmes/${filmes.slug}`}><a>{filmes.title}</a></Link>
+                                <Link href={`/filmes/${Data.slug}`}><a>{Data.title}</a></Link>
                             </li>
                             ))
                         : null}
@@ -105,4 +70,4 @@ function filmes({filmes}) {
     )
 }
 
-export default filmes
+export default Filmes;
