@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Link from 'next/link';
 import Downshift from 'downshift';
 import Layout from '../components/Layout';
+import { FilmesContext } from '../components/FilmesContext';
 
 
 function Filmes() {
+    const Data = useContext(FilmesContext);
+
     return (
         <Layout>
             <div className="container-fluid">
