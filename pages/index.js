@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { GraphQLClient } from 'graphql-request';
 import Layout from '../components/Layout';
 import Carousel from 'react-multi-carousel';
+import {FilmesContext} from '../components/FilmesContext'
+
 
 
 export async function getStaticProps() {
@@ -52,10 +54,11 @@ const responsive = {
     }
   };
 
-export const FilmesContext = React.createContext();
+
 
 export default ({ filmes }) =>
-    <FilmesContext.Provider value={ filmes } >
+<FilmesContext.Provider value={ filmes } >
+    
         <Layout>
         <div className="fluid">
             <div className="image-fluid">
@@ -105,5 +108,5 @@ export default ({ filmes }) =>
     </div>
            </div>
        </div>
-    </Layout>
-    </FilmesContext.Provider>
+        </Layout>
+        </FilmesContext.Provider>

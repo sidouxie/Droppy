@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Downshift from 'downshift';
-import { FilmesContext } from '../pages/index';
 
-function SearchBar() {
-    const Data = useContext(FilmesContext)
+
+function SearchBar({Data}) {
+    
 
     return (
         
@@ -19,7 +19,6 @@ function SearchBar() {
                 {({
                 getInputProps,
                 getItemProps,
-                getLabelProps,
                 getMenuProps,
                 isOpen,
                 inputValue,
@@ -34,13 +33,13 @@ function SearchBar() {
                     >
                     <input {...getInputProps()} className="input-search" placeholder="Rechercher un film, série, anime..." />
                     </div>
-                    <ul {...getMenuProps()}>
+                    <div className="autocomplet-result" {...getMenuProps()}>
                     {isOpen
                         ? Data
-                            .filter(Data => !inputValue.toLowerCase() || Data.title.toLowerCase().includes(inputValue))
+                            .filter(Data => !inputValue.toLowerCase() || Data.title.toLowerCase().includes(inputValue.toLocaleLowerCase()))
                             .slice(0, 10)
                             .map((Data, index) => (
-                            <li
+                            <div className="autocomplet-result-item"
                                 {...getItemProps({
                                     key: Data.slug,
                                     item: Data.title,
@@ -54,11 +53,20 @@ function SearchBar() {
                                 },
                                 })}
                             >
-                                <Link href={`/filmes/${Data.slug}`}><a>{Data.title}</a></Link>
-                            </li>
+                                    <Link  href={`/filmes/${Data.slug}`}><a >
+                                        <div className="autocomplet-result-item">
+                                            <img className="autocomplet-result-thumbnail" src={Data.cover.url} alt={Data.title} width="53" height="68" />
+                                            <span className=".autocomplet-result-text" style={{display:'flex', flexDirection:'column'}}>
+                                                <span className=".autocomplet-result-title" style={{ fontSize: '1rem', fontWeight: 'bold'}}>{Data.title}</span>
+                                                <span className=".autocomplet-result-complt" style={{ fontSize: '0.8rem', fontWeight: '600', color: '#6c757d'}}>{Data.category}</span>
+                                                <span className=".autocomplet-result-complt" style={{ fontSize: '0.8rem', fontWeight: '600', color: '#6c757d'}}>{Data.year}</span>
+                                            </span>
+                                        </div>
+                                    </a></Link>
+                            </div>
                             ))
                         : null}
-                    </ul>
+                    </div>
                 </div>
                 )}
   </Downshift>
