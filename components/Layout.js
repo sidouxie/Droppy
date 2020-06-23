@@ -6,7 +6,7 @@ import Head from 'next/head';
 
 
 const Layout = (props) => {
-    return (
+        return (
         <>
             <Head>
                 <title>Droppy - site streaming VF Filmes, Séries, Animes en francais gratuit.</title>
