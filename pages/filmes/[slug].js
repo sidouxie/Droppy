@@ -1,10 +1,28 @@
 import { GraphQLClient } from 'graphql-request';
 import Layout from '../../components/Layout';
 import Head from 'next/head';
+import { FilmesContext } from '../../components/FilmesContext';
 
 const graphcms = new GraphQLClient(process.env.API_URL);
 
 export async function getStaticProps({ params }) {
+
+    const { filmes } = await graphcms.request(
+        `
+            {
+                filmes (orderBy:year_DESC){
+                    title
+                    slug
+                    category
+                    year
+                    cover {
+                        url
+                    }
+                }
+            }
+        `
+    );
+
     const { filme } = await graphcms.request(`
         query ProductPageQuery($slug : String!) {
             filme(where : {slug: $slug}) {
@@ -29,6 +47,7 @@ export async function getStaticProps({ params }) {
 
     return {
         props: {
+            filmes,
             filme,
         },
     };
@@ -54,9 +73,10 @@ export async function getStaticPaths() {
     };
 }
 
-export default ({ filme }) => (
+export default ({ filmes, filme }) => (
     
     <React.Fragment>
+        <FilmesContext.Provider value={filmes}>
         <Layout>
             <Head><title>Droppy - Regardez {filme.title} en VF streaming gratuit.</title></Head>
             <div className="bg-hero" >
@@ -87,7 +107,8 @@ export default ({ filme }) => (
                     <iframe style={{width: "100%"}} src={`https://embed.mystream.to/${filme.apiurl}`} scrolling="no" frameBorder="0" width="700" height="420" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>    
                 </div>
             </div>
-        </Layout>
+            </Layout>
+            </FilmesContext.Provider>
         </React.Fragment>
         
 )

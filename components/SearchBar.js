@@ -3,9 +3,7 @@ import Link from 'next/link';
 import Downshift from 'downshift';
 
 
-function SearchBar({Data}) {
-    
-
+const SearchBar = ({Data}) => {
     return (
         
         <React.Fragment>
@@ -26,8 +24,9 @@ function SearchBar({Data}) {
                 selectedItem,
                 getRootProps,
                 }) => (
-                <div className="input-search">
-                    <div
+                <div >
+                <div
+                    className="input-search"
                     style={{display: 'block'}}
                     {...getRootProps({}, {suppressRefError: true})}
                     >
