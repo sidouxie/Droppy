@@ -147,14 +147,13 @@ header{
 .section-search{
     position: fixed;
     color: #fff;
-    top: 4em;
+    top: 3.3em;
     left: 0;
     bottom: 0;
     right: 0;
     width: 100%;
     height: 100%;
-    padding: 0.5em;
-    background-color: rgba(0, 123, 255, 0.12);
+    background-color: rgba(0, 123, 255, 0.2);
     
 }
 .section-search.active{
@@ -178,7 +177,7 @@ header{
     border-radius: .1875rem;
     width: 100%;
     font-size: .8125rem;
-    font-weight: 700;
+    font-weight: 400;
     color: #1b1f22;
     padding: .5rem .875rem;
 }
@@ -189,13 +188,13 @@ header{
     position: absolute;
     z-index: 1000;
     overflow: hidden;
-    overflow-y: auto;
+    overflow-y: visible;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);
     width: 100%;
-    top: 4.2em;
+    top: 3.3em;
     left: 0;
     right: 0;
-    max-height: calc(90vh - 5em);
+    max-height: calc(93vh - 5em);
 }
 
 .autocomplet-result-item{

@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import Downshift from 'downshift';
 
-
 const SearchBar = ({Data}) => {
     return (
         
@@ -30,7 +29,7 @@ const SearchBar = ({Data}) => {
                     style={{display: 'block'}}
                     {...getRootProps({}, {suppressRefError: true})}
                     >
-                    <input {...getInputProps()} className="input-search" placeholder="Rechercher un film, série, anime..." />
+                    <input {...getInputProps()} className="input-search" placeholder="Rechercher un filme, série, anime..." />
                     </div>
                     <div className="autocomplet-result" {...getMenuProps()}>
                     {isOpen
