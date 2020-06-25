@@ -27,7 +27,7 @@ const Nav = (props) => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
 
-                    <div className={`collapse navbar-collapse ${Show && 'show'}`} style={{ flexGrow: '0', marginRight: '5em', fontWeight: '700', fontSize: '1.4em'}} id="navbarColor03">
+                    <div id="Menu-nav" className={`collapse navbar-collapse ${Show && 'show'}`} style={{ flexGrow: '0', marginRight: '5em', fontWeight: '700', fontSize: '1.4em'}} id="navbarColor03">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item ml-5 active">
                                 <Link href="/"><a className="nav-a">Acceuil</a></Link>
