@@ -26,10 +26,28 @@ export async function getStaticProps() {
         `
     );
 
+    const { series } = await graphcms.request(
+        `
+        {
+            series(orderBy:year_DESC){
+                title
+                slug
+                category
+                year
+                cover {
+                    url
+                }
+                saisons
+            }
+        }
+        `
+    );
+
 
     return {
         props: {
             filmes,
+            series,
         },
     };
 }
@@ -56,8 +74,8 @@ const responsive = {
 
 
 
-export default ({ filmes }) =>
-<FilmesContext.Provider value={ filmes } >
+export default ({ filmes, series }) =>
+<FilmesContext.Provider value={ filmes, series } >
     
         <Layout>
         <div className="fluid">
@@ -91,7 +109,29 @@ export default ({ filmes }) =>
                 </div>
                 </div>
         ))}
-        </Carousel>  
+        </Carousel> 
+            
+        <div className="titre-desc">
+            <h3>Séries en tendances : </h3>
+        </div>
+        <Carousel
+            responsive={responsive}
+            ssr
+            infinite={false}
+            swipeable={true}
+            draggable={true}
+        >
+            {series.map(({ title, slug, cover, category, year }) => (
+                <div key={slug} className="container-card">
+                    <Link href={`/series/${slug}`} ><img className="carouselCard" src={cover.url} alt={title} /></Link>
+                    <div className="info-card">
+                    <h5> {title} </h5>
+                        <p> {category}, {year}</p>
+                       
+                </div>
+                </div>
+        ))}
+        </Carousel> 
 
 
        <div className="container">
