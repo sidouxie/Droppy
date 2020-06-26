@@ -12,6 +12,7 @@ export async function getStaticProps({ params }) {
             {
                 filmes (orderBy:year_DESC){
                     title
+                    type
                     slug
                     category
                     year
@@ -28,6 +29,7 @@ export async function getStaticProps({ params }) {
             {
                 series (orderBy:year_DESC){
                     title
+                    type
                     slug
                     category
                     year
@@ -44,6 +46,7 @@ export async function getStaticProps({ params }) {
         query ProductPageQuery($slug : String!) {
             serie(where : {slug: $slug}) {
                 title
+                type
                 description
                 year
                 scenario

@@ -51,7 +51,7 @@ const SearchBar = ({Data}) => {
                                 },
                                 })}
                             >
-                                    <Link  href={`/filmes/${Data.slug}`}><a >
+                                    <Link  href={`/${Data.type}/${Data.slug}`}><a>
                                         <div className="autocomplet-result-item">
                                             <img className="autocomplet-result-thumbnail" src={Data.cover.url} alt={Data.title} width="53" height="68" />
                                             <span className=".autocomplet-result-text" style={{display:'flex', flexDirection:'column'}}>

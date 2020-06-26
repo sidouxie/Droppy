@@ -12,6 +12,7 @@ export async function getStaticProps() {
             {
                 filmes (orderBy:year_DESC){
                     title
+                    type
                     slug
                     category
                     year
