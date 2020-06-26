@@ -119,7 +119,7 @@ export default ({ filmes,series, serie }) => (
                     </div>
                         
                         <div><ul>
-                        {serie.saisons.saison.episodes.map(({title, id, url}) =>(<li key={id}><h3 onClick={()=> console.log(url)} >{title}</h3></li>))} 
+                        {serie.saisons.saison.episodes.map(({title, id, url}) =>(<li key={id}><h3>{title}</h3></li>))} 
                         </ul></div>
       
                 </div>
