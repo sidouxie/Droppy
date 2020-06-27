@@ -2,11 +2,13 @@ import { GraphQLClient } from 'graphql-request';
 import Layout from '../../components/Layout';
 import Head from 'next/head';
 import { FilmesContext } from '../../components/FilmesContext';
+import Player from '../../components/Player';
+
 
 const graphcms = new GraphQLClient(process.env.API_URL);
 
 export async function getStaticProps({ params }) {
-
+    
     const { filmes } = await graphcms.request(
         `
             {
@@ -92,7 +94,13 @@ export async function getStaticPaths() {
     };
 }
 
-export default ({ filmes,series, serie }) => (
+
+function setCount() {
+    const count = 0;
+    count + 1;
+    return console.log(count);
+}
+export default ({ filmes, series, serie, count }) => (
     <React.Fragment>
         <FilmesContext.Provider value={filmes, series}>
         <Layout>
@@ -122,14 +130,15 @@ export default ({ filmes,series, serie }) => (
                     </div>
                         
                         <div><ul>
-                        {serie.saisons.saison.episodes.map(({title, id, url}) =>(<li key={id}><h3>{title}</h3></li>))} 
+                            {serie.saisons.saison.episodes.map(({ title, id, url }) => (<li key={id} onClick={() => setCount()} ><h3>{title}</h3></li>))} 
                         </ul></div>
-      
+
                 </div>
                 <div className="section-vid">
                     <iframe style={{width: "100%"}} src={`https://embed.mystream.to/${serie.saisons.saison.episodes[0].url}`} scrolling="no" frameBorder="0" width="700" height="420" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>    
                 </div>
-            </div>
+                </div>
+                <Player />
             </Layout>
             </FilmesContext.Provider>
         </React.Fragment>

@@ -29,27 +29,26 @@ export async function getStaticProps() {
 
     const { series } = await graphcms.request(
         `
-        {
-            series(orderBy:year_DESC){
-                title
-                slug
-                category
-                year
-                type
-                cover {
-                    url
+            {
+                series (orderBy:year_DESC){
+                    type
+                    title
+                    slug
+                    category
+                    year
+                    cover {
+                        url
+                    }
+                    saisons
                 }
-                saisons
             }
-        }
         `
     );
 
-
     return {
         props: {
-            filmes,
-            series,
+                filmes,
+                series,
         },
     };
 }
@@ -75,9 +74,8 @@ const responsive = {
   };
 
 
-
 export default ({ filmes, series }) =>
-<FilmesContext.Provider value={ filmes, series } >
+<FilmesContext.Provider value={ filmes } >
     
         <Layout>
         <div className="fluid">

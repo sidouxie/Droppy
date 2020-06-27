@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Downshift from 'downshift';
 
-const SearchBar = ({Data}) => {
+const SearchBar = ({ Data }) => {
     return (
         
         <React.Fragment>
@@ -39,7 +39,7 @@ const SearchBar = ({Data}) => {
                             .map((Data, index) => (
                             <div className="autocomplet-result-item"
                                 {...getItemProps({
-                                    key: Data.slug,
+                                    key: Data.slug ,
                                     item: Data.title,
                                     itemID: Data.id,
                                     index,
