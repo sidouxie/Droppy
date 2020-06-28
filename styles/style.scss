@@ -232,3 +232,29 @@ header{
     font-weight: 700 !important;
 }
 
+.pagination{
+    .pagination-episodes{
+        display: inline-flex;
+        list-style: none;
+        color: #fff;
+        padding: 0;
+    }
+    .pagination-item{
+        margin-left: 1.5em;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        width: 40px;
+        height: auto;
+        text-align: center;
+        cursor: pointer;
+
+        span{
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+        &.pagination-item.active{
+            border: 2px solid #f6f6 !important;
+            color: #f6f6 !important;
+        }
+    }
+}

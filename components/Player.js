@@ -1,23 +1,21 @@
 import React,{useState,useEffect} from 'react';
 
 
-
 const Player = ({serie}) => {
-    const [Count, setCount] = useState(0);
-    useEffect(() => {
-        console.log(Count);
-        
-    },[])
+    const [Count, setCount] = useState(1);
+    const [Active, setActive] = useState(false);
 
     return (
         <div>
-                <div classNasme="section-info">
+                <div className="section-info">
                     <div className="section-one">
                         <h3>Serie : {serie.title} en VF </h3>
                         <h3>Saison : {serie.saisons.saison.title} </h3>
+                        <h3>episodes :</h3>
                     </div>
-                        <div><ul>
-                            {serie.saisons.saison.episodes.map(({ title, id, url }) => (<li key={id} onClick={() => setCount(id)}><h3>{title}</h3></li>))} 
+                    <div className="pagination">
+                        <ul className="pagination-episodes">
+                            {serie.saisons.saison.episodes.map(({ title, id, url }) => (<li key={id} className="pagination-item" onClick={() => {setCount(id), setActive(!Active)}}><span className={`${!Active ? 'active' : ''}`} >{id}</span></li>))} 
                         </ul></div>
                     </div>
                 <div className="section-vid">
