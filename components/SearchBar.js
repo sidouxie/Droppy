@@ -15,7 +15,8 @@ const SearchBar = ({ Data }) => {
             >
                 {({
                 getInputProps,
-                getItemProps,
+                    getItemProps,
+                getLabelProps,
                 getMenuProps,
                 isOpen,
                 inputValue,
@@ -23,7 +24,8 @@ const SearchBar = ({ Data }) => {
                 selectedItem,
                 getRootProps,
                 }) => (
-                <div >
+                        <div >
+                         <label {...getLabelProps()}></label>   
                 <div
                     className="input-search"
                     style={{display: 'block'}}

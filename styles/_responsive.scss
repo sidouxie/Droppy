@@ -1,5 +1,7 @@
-@media screen and (max-width: 400px) {
-    
+@media screen and (max-width: 450px) {
+    .pagination-item{
+        width: 20px !important;
+    }
 }
 
 
@@ -11,7 +13,6 @@
     .section-one{
         margin-left: 0 !important;
     }
-    
 }
 
 
