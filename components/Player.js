@@ -11,7 +11,10 @@ const Player = ({serie}) => {
         return selected ? 'active' : '';
     }
 
-
+    function isSaison(id) {
+        const selected = SaisonCount === id;
+        return selected ? 'active' : '';
+    }
 
     return (
         <div>
@@ -20,7 +23,7 @@ const Player = ({serie}) => {
                         <h3>Serie : {serie.title} en VF </h3>
                         <h3>Saison : {serie.saisons.saison.title} </h3>
                         <div className="option-saison">
-                            <ul className="pagination-episodes">{serie.saisons.saison.map(({ title, id }) => (<li key={id} onClick={() => setSaisonCount(id)} className={`option-saison-item`}>{title}</li>))}</ul>
+                            <ul className="option-saison-menu">{serie.saisons.saison.map(({ title, id }) => (<li key={id} onClick={() => setSaisonCount(id)} className={`option-saison-item ${isSaison(id)}`}>{title}</li>))}</ul>
                         </div>
                         <h3>episodes :</h3>
                     </div>
