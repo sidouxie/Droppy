@@ -267,6 +267,7 @@ label{
         height: auto;
         text-align: center;
         cursor: pointer;
+        transition: all .3s ease-in-out;
 
         span{
             font-size: 1.1em;
@@ -294,6 +295,7 @@ label{
         border-radius: 8px;
         text-align: center;
         cursor: pointer;
+        transition: all .3s ease-in-out;
 
         &.option-saison-item.active{
             border: 1px solid #ffaa0e !important;
@@ -322,10 +324,23 @@ label{
         border: 1px solid #232529;
         padding: 0.5em;
         cursor: pointer;
-
         text-transform: uppercase;
         letter-spacing: 7px;
         transition: all .3s ease-in-out;
+
+        &.active{
+            border: 2px solid #ffaa0e;
         }
     }
+    .change-player-item-up{
+        border: 2px solid #ffaa0e;
+        padding: 0.5em;
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+
+        &.active{
+            border: 1px solid #232529;
+        }
+    }
+}
 }
