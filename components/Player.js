@@ -5,15 +5,21 @@ const Player = ({serie}) => {
     const [Count, setCount] = useState(1);
     const [SaisonCount, setSaisonCount] = useState(1);
     const [Active, setActive] = useState('1');
+    const [Change, setChange] = useState(1);
 
-    function isActive(id) {
+    function isActivated(id) {
         const selected = Active === id;
         return selected ? 'active' : '';
     }
 
     function isSaison(id) {
         const selected = SaisonCount === id;
-        return selected ? 'active' : '';
+        return selected ? 'active' : ''; 
+    }
+
+    function isChange() {
+        const selection = Change === 1;
+        return selection ? 'active' : '';
     }
 
     return (
@@ -29,12 +35,23 @@ const Player = ({serie}) => {
                     </div>
                     <div className="pagination">
                         <ul className="pagination-episodes">
-                            {serie.saisons.saison[SaisonCount - 1].episodes.map(({ title, id, url }) => (<li key={id} className={`pagination-item ${isActive(id)}`} onClick={() => {setCount(id), setActive(id)}}><span>{id}</span></li>))} 
+                            {serie.saisons.saison[SaisonCount - 1].episodes.map(({ title, id, url, urlCode }) => (<li key={id} className={`pagination-item ${isActivated(id)}`} onClick={() => {setCount(id), setActive(id)}}><span>{id}</span></li>))} 
                         </ul></div>
                     </div>
-                <div className="section-vid">
+                <div className={`section-player ${isChange(1)}`}>
                     <iframe style={{width: "100%"}} src={`https://embed.mystream.to/${serie.saisons.saison[SaisonCount - 1].episodes[Count - 1].url}`} scrolling="no" frameBorder="0" width="700" height="420" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>    
-                </div>
+            </div>
+            <div className={`section-player-up ${isChange(2)}`}>
+                <iframe style={{width: '100%'}} src={`https://upstream.to/embed-${serie.saisons.saison[SaisonCount - 1].episodes[Count - 1].urlCode}.html`} scrolling="no" frameBorder="0" width="700" height="420" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+            </div>
+
+            <div className="change-player">
+                <h3>Choix de Platforme : </h3>
+                <ul className="change-player-menu">
+                    <li className="change-player-item" onClick={() => setChange(1)}><span style={{color:'#f7db61'}}>My</span>stream</li>
+                    <li className="change-player-item" onClick={() => setChange(2)}><span style={{color:'#02b9c0'}}>Up</span>stream</li>
+                </ul>
+            </div>
         </div>
     )
 }

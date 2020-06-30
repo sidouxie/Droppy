@@ -121,6 +121,23 @@
     padding: 1em;
 }
 
+.section-player{
+    display: none;
+    padding: 1em;
+
+    &.active{
+        display: block;
+    }
+}
+.section-player-up{
+    display: block;
+    padding: 1em;
+
+    &.active{
+        display: none;
+    }
+}
+
 .player-wrapper {
     position: relative;
     padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */
@@ -241,7 +258,7 @@ label{
         list-style: none;
         color: #fff;
         padding: 0;
-        max-width: 100vw;
+        max-width: 90vw;
     }
     .pagination-item{
         margin-left: 0.8em;
@@ -283,6 +300,32 @@ label{
             background-color: #ffaa0e !important;
             color: #090a0c;
             font-weight: 900;
+        }
+    }
+}
+
+.change-player{
+    h3{
+        color: #fff;
+        text-align: center;
+    }
+    .change-player-menu{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        list-style: none;
+        justify-content: space-evenly;
+        color: #fff;
+        padding: 2em;
+
+        .change-player-item{
+        border: 1px solid #232529;
+        padding: 0.5em;
+        cursor: pointer;
+
+        text-transform: uppercase;
+        letter-spacing: 7px;
+        transition: all .3s ease-in-out;
         }
     }
 }
