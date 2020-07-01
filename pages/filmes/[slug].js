@@ -2,6 +2,7 @@ import { GraphQLClient } from 'graphql-request';
 import Layout from '../../components/Layout';
 import Head from 'next/head';
 import { FilmesContext } from '../../components/FilmesContext';
+import PlayerFilme from '../../components/PlayerFilme';
 
 const graphcms = new GraphQLClient(process.env.API_URL);
 
@@ -35,6 +36,7 @@ export async function getStaticProps({ params }) {
                 category
                 duree
                 apiurl
+                urlCode
                 poster
                 cover {
                     id
@@ -99,16 +101,7 @@ export default ({ filmes, filme }) => (
                     </div>
                 </div>
             </div>
-            <div>
-                <div className="section-info">
-                    <div className="section-one">
-                        <h3>Filme : {filme.title} en VF </h3>
-                    </div>
-                </div>
-                <div className="section-vid">
-                    <iframe style={{width: "100%"}} src={`https://embed.mystream.to/${filme.apiurl}`} scrolling="no" frameBorder="0" width="700" height="420" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>    
-                </div>
-            </div>
+            <PlayerFilme filme={filme} />
             </Layout>
             </FilmesContext.Provider>
         </React.Fragment>
