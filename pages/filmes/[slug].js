@@ -101,6 +101,7 @@ export default ({ filmes, filme }) => (
                     </div>
                 </div>
             </div>
+            // skhante serieusement
             <PlayerFilme filme={filme} />
             </Layout>
             </FilmesContext.Provider>
