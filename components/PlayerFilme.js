@@ -3,7 +3,7 @@ import React,{useState,useEffect} from 'react';
 
 const PlayerFilme = ({filme}) => {
     
-    const [Change, setChange] = useState(1);
+    const [Change, setChange] = useState(2);
 
     function isChange() {
         const selection = Change === 1;
