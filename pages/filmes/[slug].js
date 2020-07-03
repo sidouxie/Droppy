@@ -87,7 +87,7 @@ export default ({ filmes, filme }) => (
                 <img src={filme.cover.url} alt={filme.cover.fileName} />
             </div>
             <div className="container">
-                <div className="row">
+                <div className="row" style={{justifyContent:"center"}}>
                     <div className="section-info">
                         <div className="section-one">
                         <h2> {filme.title} </h2>

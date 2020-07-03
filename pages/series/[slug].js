@@ -95,12 +95,7 @@ export async function getStaticPaths() {
 }
 
 
-function setCount() {
-    const count = 0;
-    count + 1;
-    return console.log(count);
-}
-export default ({ filmes, series, serie, count }) => (
+export default ({ filmes, series, serie }) => (
     <React.Fragment>
         <FilmesContext.Provider value={filmes, series}>
         <Layout>
@@ -109,7 +104,7 @@ export default ({ filmes, series, serie, count }) => (
                 <img src={serie.cover.url} alt={serie.cover.fileName} />
             </div>
             <div className="container">
-                <div className="row">
+                <div className="row" style={{justifyContent:"center"}}>
                     <div className="section-info">
                         <div className="section-one">
                         <h2> {serie.title} </h2>
