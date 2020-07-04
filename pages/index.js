@@ -92,14 +92,16 @@ export default ({ filmes, series }) =>
         <div className="titre-desc">
             <h3>Filmes en tendances : </h3>
         </div>
-        <Carousel
-            responsive={responsive}
-            ssr
-            infinite={false}
-            swipeable={true}
-            draggable={true}
-        >
-            {filmes.map(({ title, slug, cover, category, year }) => (
+            <Carousel
+                responsive={responsive}
+                ssr
+                infinite={false}
+                swipeable={true}
+                draggable={true}
+                customTransition="all .3 ease-in"
+                transitionDuration={300}
+            >
+            {filmes.slice(0,10).map(({ title, slug, cover, category, year }) => (
                 <div key={slug} className="container-card">
                     <Link href={`/filmes/${slug}`} ><img className="carouselCard" src={cover.url} alt={title} /></Link>
                     <div className="info-card">
@@ -120,8 +122,10 @@ export default ({ filmes, series }) =>
             infinite={false}
             swipeable={true}
             draggable={true}
+            customTransition="all .3 ease-in"
+            transitionDuration={300}
         >
-            {series.map(({ title, slug, cover, category, year }) => (
+            {series.slice(0,10).map(({ title, slug, cover, category, year }) => (
                 <div key={slug} className="container-card">
                     <Link href={`/series/${slug}`} ><img className="carouselCard" src={cover.url} alt={title} /></Link>
                     <div className="info-card">
