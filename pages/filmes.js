@@ -1,11 +1,14 @@
 import Layout from '../components/Layout';
-import React from 'react';
-import { FilmesContext } from '../components/FilmesContext';
+import React, {useEffect,useState} from 'react';
+import { QueryContext } from '../components/FilmesContext';
 import { GraphQLClient } from 'graphql-request';
-
 
 export async function getStaticProps() {
     const graphcms = new GraphQLClient(process.env.API_URL); 
+    
+    const { series } = await graphcms.request(
+        `{series{title slug type year category cover{url}}}`
+    )
 
     const { filmes } = await graphcms.request(
         `
@@ -23,26 +26,33 @@ export async function getStaticProps() {
             }
         `
     );
-
-
+    
     return {
         props: {
             filmes,
+            series,
         },
     };
 }
 
-const Filmes = ({filmes}) => { 
+const Filmes = ({ filmes,series }) => { 
+    const [Query, setQuery] = useState([]);
+
+    useEffect(() => {
+        const data = setQuery([...filmes, ...series])
+        return data
+    }, [])
+
     return ( 
-            <FilmesContext.Provider value={filmes}>
-        <Layout>
-            <div className="container-fluid">
-                <div className="row">
-                    <h1>Bienvenue sur la page Filmes.</h1>
-                </div>
-            </div>
-            </Layout>
-            </FilmesContext.Provider>
+            <QueryContext.Provider value={Query}>
+                <Layout>
+                    <div className="container-fluid">
+                        <div className="row">
+                            <h1>Bienvenue sur la page Filmes.</h1>
+                        </div>
+                    </div>
+                    </Layout>
+            </QueryContext.Provider>
     )
 }
 

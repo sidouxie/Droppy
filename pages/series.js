@@ -1,6 +1,6 @@
 import Layout from '../components/Layout';
-import React from 'react';
-import { FilmesContext } from '../components/FilmesContext';
+import React,{useEffect,useState} from 'react';
+import { QueryContext } from '../components/FilmesContext';
 import { GraphQLClient } from 'graphql-request';
 
 
@@ -24,17 +24,30 @@ export async function getStaticProps() {
         `
     );
 
+    const { series } = await graphcms.request(
+        `{series{title slug type year category cover{url}}}`
+    )
+
 
     return {
         props: {
             filmes,
+            series
         },
     };
 }
 
-const series = ({filmes}) => { 
+const series = ({ filmes, series }) => { 
+    
+    const [Query, setQuery] = useState([]);
+
+    useEffect(() => {
+        const data = setQuery([...filmes, ...series])
+        return data
+    }, [])
+
     return ( 
-            <FilmesContext.Provider value={filmes}>
+            <QueryContext.Provider value={Query}>
         <Layout>
             <div className="container-fluid">
                 <div className="row">
@@ -42,7 +55,7 @@ const series = ({filmes}) => {
                 </div>
             </div>
             </Layout>
-            </FilmesContext.Provider>
+            </QueryContext.Provider>
     )
 }
 

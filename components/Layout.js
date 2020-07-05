@@ -14,9 +14,9 @@ const Layout = (props) => {
             </Head>
 
                 <div className='min-Width'>
-                <Nav />
-                { props.children }
-                    </div>
+                    <Nav />
+                    { props.children }
+                </div>
         </>
     )
 }

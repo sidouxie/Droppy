@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { GraphQLClient } from 'graphql-request';
 import Layout from '../components/Layout';
 import Carousel from 'react-multi-carousel';
-import {FilmesContext} from '../components/FilmesContext'
+import {QueryContext} from '../components/FilmesContext'
 
 
 
@@ -74,8 +74,17 @@ const responsive = {
   };
 
 
-export default ({ filmes, series }) =>
-<FilmesContext.Provider value={ filmes } >
+export default ({ filmes, series }) => {
+
+    const [Query, setQuery] = useState([]);
+
+    useEffect(() => {
+        const data = setQuery([...filmes, ...series])
+        return data
+    }, [])
+    
+    return (
+        <QueryContext.Provider value={ Query } >
     
         <Layout>
         <div className="fluid">
@@ -153,4 +162,6 @@ export default ({ filmes, series }) =>
            </div>
        </div>
         </Layout>
-        </FilmesContext.Provider>
+        </QueryContext.Provider>
+)}
+

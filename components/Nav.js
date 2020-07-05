@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import Link from 'next/link';
 import SearchBar from './SearchBar';
-import { FilmesContext } from './FilmesContext';
+import { QueryContext } from './FilmesContext';
 
 
 const Nav = (props) => {
@@ -9,7 +9,7 @@ const Nav = (props) => {
     const [Active, setActive] = useState(false);
     const [Hover, setHover] = useState(false);
 
-    const Data = useContext(FilmesContext);
+    const Data = useContext(QueryContext);
 
 
     return (

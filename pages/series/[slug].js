@@ -1,8 +1,9 @@
 import { GraphQLClient } from 'graphql-request';
 import Layout from '../../components/Layout';
 import Head from 'next/head';
-import { FilmesContext } from '../../components/FilmesContext';
+import { QueryContext } from '../../components/FilmesContext';
 import Player from '../../components/Player';
+import React, { useEffect, useState } from 'react';
 
 
 const graphcms = new GraphQLClient(process.env.API_URL);
@@ -95,32 +96,41 @@ export async function getStaticPaths() {
 }
 
 
-export default ({ filmes, series, serie }) => (
-    <React.Fragment>
-        <FilmesContext.Provider value={filmes, series}>
-        <Layout>
-            <Head><title>Droppy - Regardez {serie.title} en VF streaming gratuit.</title></Head>
-            <div className="bg-hero" >
-                <img src={serie.cover.url} alt={serie.cover.fileName} />
-            </div>
-            <div className="container">
-                <div className="row" style={{justifyContent:"center"}}>
-                    <div className="section-info">
-                        <div className="section-one">
-                        <h2> {serie.title} </h2>
-                <p><strong>Catégorie</strong> : {serie.category} </p>
-                <p><strong>Réalisateur</strong> :  {serie.scenario} </p>
-                <p><strong>Résumé</strong> :  {serie.description} </p>
-                <p><strong>Année de sortie</strong> :  {serie.year} </p>
+export default ({ filmes, series, serie }) => {
+    const [Query, setQuery] = useState([]);
+
+    useEffect(() => {
+        const data = setQuery([...filmes, ...series])
+        return data
+    }, [])
+    
+    return(
+        <React.Fragment>
+            <QueryContext.Provider value={Query}>
+                <Layout>
+                    <Head><title>Droppy - Regardez {serie.title} en VF streaming gratuit.</title></Head>
+                    <div className="bg-hero" >
+                        <img src={serie.cover.url} alt={serie.cover.fileName} />
                     </div>
-                    <div className="section-two"><img src={serie.cover.url} alt={serie.cover.fileName} /></div>
+                    <div className="container">
+                        <div className="row" style={{ justifyContent: "center" }}>
+                            <div className="section-info">
+                                <div className="section-one">
+                                    <h2> {serie.title} </h2>
+                                    <p><strong>Catégorie</strong> : {serie.category} </p>
+                                    <p><strong>Réalisateur</strong> :  {serie.scenario} </p>
+                                    <p><strong>Résumé</strong> :  {serie.description} </p>
+                                    <p><strong>Année de sortie</strong> :  {serie.year} </p>
+                                </div>
+                                <div className="section-two"><img src={serie.cover.url} alt={serie.cover.fileName} /></div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
             
-            <Player serie={serie} />
-            </Layout>
-            </FilmesContext.Provider>
+                    <Player serie={serie} />
+                </Layout>
+            </QueryContext.Provider>
         </React.Fragment>
         
-)
+    )
+}
