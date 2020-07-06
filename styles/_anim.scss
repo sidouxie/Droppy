@@ -8,3 +8,32 @@
     0%{opacity: 0;}
     100%{opacity: 1;}
 }
+
+@keyframes carousel1 {
+    0%{visibility: visible;}
+    25%{visibility: hidden;}
+    50%{visibility: hidden;}
+    75%{visibility: hidden;}
+    100%{visibility: visible;}
+}
+@keyframes carousel2 {
+    0%{visibility: hidden;}
+    25%{visibility: hidden;}
+    50%{visibility: visible;}
+    75%{visibility: hidden;}
+    100%{visibility: hidden;}
+}
+@keyframes carousel3 {
+    0%{visibility: hidden;}
+    25%{visibility: hidden;}
+    50%{visibility: hidden;}
+    75%{visibility: visible;}
+    100%{visibility: hidden;}
+}
+@keyframes carousel4 {
+    0%{visibility: hidden;}
+    25%{visibility: hidden;}
+    50%{visibility: hidden;}
+    75%{visibility: hidden;}
+    100%{visibility: visible;}
+}

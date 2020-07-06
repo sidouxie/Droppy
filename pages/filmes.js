@@ -2,7 +2,6 @@ import Layout from '../components/Layout';
 import React, {useEffect,useState} from 'react';
 import { QueryContext } from '../components/FilmesContext';
 import { GraphQLClient } from 'graphql-request';
-import Carousel from 'react-multi-carousel';
 
 export async function getStaticProps() {
     const graphcms = new GraphQLClient(process.env.API_URL); 
@@ -68,10 +67,15 @@ const Filmes = ({ filmes,series }) => {
                 <Layout>
                     <div className="container-fluid">
                         <div className="row">
-                        <div className='section-images'>{filmes.slice(0, 4).map(({ title, slug, cover }) => (
+                        <div className='section-images'>{filmes.slice(0, 4).map(({ title, slug, cover,year,category }) => (
                             <div key={slug} className="bg-image">
                                 <img className='bg-item' src={cover.url} alt={title} />
-                                <span>{title}</span>
+                                <div className="section-text">
+                                    <span className="title">{title}</span>
+                                    <span className="ligne-orange"></span>
+                                    <span className="category">{category}</span>
+                                    <span className="annee">{year}</span>
+                                </div>
                             </div>
                             ))}
                         </div>

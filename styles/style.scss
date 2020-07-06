@@ -5,7 +5,7 @@
 
 .sectionText{
     position: absolute;
-    top: 42%;
+    top: 35%;
     left: 8%;
     color: #fff;
     h1{
@@ -371,12 +371,70 @@ label{
 
 .bg-image{
     width: 100%;
-    height: 50vh;
-    display: block;
+    height: 80vh;
+    position: absolute;
+    left: 0;
+    top: 0;
 
     .bg-item{
-        width: inherit;
+        width: 100%;
+        height: inherit;
+        filter: blur(1px) brightness(65%);
     }
+}
+
+.section-text{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 10%;
+    color: #fff;
+    
+    .title{
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: -1px;
+        line-height: 1.1;
+    }
+    .ligne-orange{
+        height: 5px;
+        width: 50px;
+        margin-bottom: 0.5em;
+        margin-top: 0.5em;
+        background-color: #ffaa0e;
+    }
+    .category{
+        font-size: 1rem;
+        font-weight: 300;
+        font-style: italic;
+        letter-spacing: 1px;
+        line-height: 1;
+    }
+    .annee{
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 0.8;
+        letter-spacing: 2px;
+        font-style: italic;
+    }
+}
+
+.bg-image:nth-child(1){
+    animation: carousel1 linear 15s infinite;
+    -webkit-animation: carousel1 linear 15s infinite;
+}
+.bg-image:nth-child(2){
+    animation: carousel2 linear 15s infinite;
+    -webkit-animation: carousel2 linear 15s infinite;
+}
+.bg-image:nth-child(3){
+    animation: carousel3 linear 15s infinite;
+    -webkit-animation: carousel3 linear 15s infinite;
+}
+.bg-image:nth-child(4){
+    animation: carousel4 linear 15s infinite;
+    -webkit-animation: carousel4 linear 15s infinite;
 }
 
 .section-vilain{
