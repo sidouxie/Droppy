@@ -24,10 +24,10 @@ const Player = ({serie}) => {
 
     return (
         <div>
-                <div className="section-info">
-                    <div className="section-one">
-                        <h3>Serie : {serie.title} en VF </h3>
-                        <h3>Saison : {serie.saisons.saison.title} </h3>
+                <div className="section-vilain">
+                    <div className="section-vilain-items">
+                        <h3 style={{textAlign:"center"}}><span className="item-strong">{serie.title} en VF</span></h3>
+                        <h3>Saison :</h3>
                         <div className="option-saison">
                             <ul className="option-saison-menu">{serie.saisons.saison.map(({ title, id }) => (<li key={id} onClick={() => setSaisonCount(id)} className={`option-saison-item ${isSaison(id)}`}>{title}</li>))}</ul>
                         </div>
