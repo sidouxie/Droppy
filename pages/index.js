@@ -145,22 +145,6 @@ export default ({ filmes, series }) => {
                 </div>
         ))}
         </Carousel> 
-
-
-       <div className="container">
-            <div className="row">
-            <div>
-        <ul>
-            {filmes.map(({ slug, title }) => (
-                <li key={slug}>
-                    <Link key={slug} href={`/filmes/${slug}`}>
-                        <a> {title} </a>
-                    </Link></li>
-                ))} 
-        </ul>
-    </div>
-           </div>
-       </div>
         </Layout>
         </QueryContext.Provider>
 )}

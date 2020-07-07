@@ -9,7 +9,7 @@ function Pagination({ filmePerPage, totalFilmes, paginate }) {
 
     return (
         <nav>
-            <ul className='pagination'>
+            <ul style={{justifyContent:'center'}} className='pagination'>
                 {pageNumbers.map(number => (
                     <li key={number} className='page-item'>
                         <button onClick={() => paginate(number)} className='page-link'>{number}</button>
