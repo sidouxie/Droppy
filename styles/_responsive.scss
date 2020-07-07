@@ -22,6 +22,14 @@
 }
 
 @media only screen and (min-width: 800px) {
+    
+    .container-items{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
     .section-info{
         flex-direction: column !important;
     }
@@ -29,14 +37,7 @@
     .section-one{
         margin-left: 0 !important;
     }
-
-    .container-items{
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-
 }
-
-
 
 
 @media only screen and (min-width: 1000px) {
