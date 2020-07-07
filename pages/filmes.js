@@ -2,6 +2,8 @@ import Layout from '../components/Layout';
 import React, {useEffect,useState} from 'react';
 import { QueryContext } from '../components/FilmesContext';
 import { GraphQLClient } from 'graphql-request';
+import FilmesPost from '../components/FilmesPost';
+import Pagination from '../components/Pagination';
 
 export async function getStaticProps() {
     const graphcms = new GraphQLClient(process.env.API_URL); 
@@ -37,30 +39,22 @@ export async function getStaticProps() {
 
 const Filmes = ({ filmes,series }) => { 
     const [Query, setQuery] = useState([]);
-    const responsive = {
-        superLargeDesktop: {
-          // the naming can be any, depends on you.
-          breakpoint: { max: 4000, min: 3000 },
-          items: 1
-        },
-        desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 1
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 1
-        },
-        mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 1
-        }
-      };
+    const [CurrentPage, setCurrentPage] = useState(1);
+    const [FilmesPerPage] = useState(10);
+    
 
     useEffect(() => {
         const data = setQuery([...filmes, ...series])
         return data
     }, [])
+
+    //Avoir le dernier filme
+    const indexOfLastFilme = CurrentPage * FilmesPerPage;
+    const indexOfFirstFilme = indexOfLastFilme - FilmesPerPage;
+    const currentFilme = filmes.slice(indexOfFirstFilme, indexOfLastFilme);
+
+    //change page
+    const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     return ( 
             <QueryContext.Provider value={Query}>
@@ -79,9 +73,12 @@ const Filmes = ({ filmes,series }) => {
                             </div>
                             ))}
                         </div>
-                        </div>
                     </div>
-                    </Layout>
+                </div>
+                
+                <FilmesPost filmes={currentFilme} />
+                <Pagination filmePerPage={FilmesPerPage} totalFilmes={filmes.length} paginate={paginate} />
+                </Layout>
             </QueryContext.Provider>
     )
 }
