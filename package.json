@@ -22,7 +22,7 @@
     "react-dom": "^16.13.1",
     "react-hook-media-query": "^1.0.3",
     "react-multi-carousel": "^2.5.5",
-    "react-player": "^2.2.0"
+    "react-player": "^2.5.0"
   },
   "devDependencies": {
     "dotenv": "^8.2.0"

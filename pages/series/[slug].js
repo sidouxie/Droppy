@@ -9,7 +9,6 @@ import React, { useEffect, useState } from 'react';
 const graphcms = new GraphQLClient(process.env.API_URL);
 
 export async function getStaticProps({ params }) {
-    
     const { filmes } = await graphcms.request(
         `
             {
@@ -96,7 +95,7 @@ export async function getStaticPaths() {
 }
 
 
-export default ({ filmes, series, serie }) => {
+export default ({ filmes, series, serie, initialCount }) => {
     const [Query, setQuery] = useState([]);
 
     useEffect(() => {
@@ -127,7 +126,7 @@ export default ({ filmes, series, serie }) => {
                         </div>
                     </div>
             
-                    <Player serie={serie} />
+                    <Player serie={serie} initialCount={initialCount} />
                 </Layout>
             </QueryContext.Provider>
         </React.Fragment>

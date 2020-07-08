@@ -2,11 +2,24 @@ import React, { useState, useEffect } from 'react';
 import Cookie from 'js-cookie';
 import { parseCookies } from './parseCookies';
 
+export async function getInitialProps ({ req })  {
+    const cookies =  parseCookies(req);
+    const data =  cookies.useCache
+
+    return {
+        props: {
+            initialCount: data,
+        }
+    }
+}
+
+
 const Player = ({ serie, initialCount }) => {
     const [Count, setCount] = useState(initialCount || 1);
 
     useEffect(() => {
-        Cookie.set('useCache', Count, { expires: 7 });
+        Cookie.set("useCache", Count, { expires: 7 });
+        
     }, [Count])
 
     const [SaisonCount, setSaisonCount] = useState('1');
@@ -45,10 +58,10 @@ const Player = ({ serie, initialCount }) => {
                         </ul></div>
                     </div>
                 <div className={`section-player ${isChange(1)}`}>
-                    <iframe style={{width: "100%"}} src={`https://embed.mystream.to/${serie.saisons.saison[SaisonCount - 1].episodes[Count-1].url}`} scrolling="no" frameBorder="0" width="700" height="420" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>    
+                    <iframe style={{width: "100%"}} src={`https://embed.mystream.to/${serie.saisons.saison[SaisonCount - 1].episodes[Count - 1].url}`} scrolling="no" frameBorder="0" width="700" height="420" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>    
             </div>
             <div className={`section-player-up ${isChange(2)}`}>
-                <iframe style={{width: '100%'}} src={`https://upstream.to/embed-${serie.saisons.saison[SaisonCount - 1].episodes[Count-1].urlCode}.html`} scrolling="no" frameBorder="0" width="700" height="420" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+                <iframe style={{width: '100%'}} src={`https://upstream.to/embed-${serie.saisons.saison[SaisonCount - 1].episodes[Count - 1].urlCode}.html`} scrolling="no" frameBorder="0" width="700" height="420" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
             </div>
 
             <div className="change-player">
@@ -60,14 +73,6 @@ const Player = ({ serie, initialCount }) => {
             </div>
         </div>
     )
-}
-
-Player.getInitialProps = ({ req }) => {
-    const cookies = parseCookies(req);
-    
-    return {
-        initialCount: cookies.Count
-    }
 }
 
 export default Player;
