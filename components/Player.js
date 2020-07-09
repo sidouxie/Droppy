@@ -1,26 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import Cookie from 'js-cookie';
-import { parseCookies } from './parseCookies';
+import { parseCookies, setCookie, destroyCookie } from 'nookies'
 
-export async function getInitialProps ({ req })  {
-    const cookies =  parseCookies(req);
-    const data =  cookies.useCache
+
+export async function getServerSideProps({ ctx }) {
+    const cookies = parseCookies(ctx)
 
     return {
-        props: {
-            initialCount: data,
-        }
+        cookies
     }
 }
 
 
-const Player = ({ serie, initialCount }) => {
-    const [Count, setCount] = useState(initialCount || 1);
 
-    useEffect(() => {
-        Cookie.set("useCache", Count, { expires: 7 });
+const Player = ({ serie, cookies }) => {
+    const [Count, setCount] = useState(1);
+
+    const [Kooky, setKooky] = useState(() => parseCookies(cookies));
+
+    console.log(Kooky)
+
+    function handleKooky(id) {
+            // Simply omit context parameter.
+            // Parse
+            const cookies = parseCookies()
+            
+
+            // Set
+            setCookie(id, 'fromClient', id, {
+                maxAge: 30 * 24 * 60 * 60,
+                path: '/',
+            })
         
-    }, [Count])
+        return cookies
+    }
 
     const [SaisonCount, setSaisonCount] = useState('1');
     const [Active, setActive] = useState('1');
@@ -54,18 +66,19 @@ const Player = ({ serie, initialCount }) => {
                     </div>
                     <div className="pagination">
                         <ul className="pagination-episodes">
-                            {serie.saisons.saison[SaisonCount - 1].episodes.map(({ title, id, url, urlCode }) => (<li key={id} className={`pagination-item ${isActivated(id)}`} onClick={() => {setCount(id), setActive(id)}}><span>{id}</span></li>))} 
+                            {serie.saisons.saison[SaisonCount - 1].episodes.map(({ title, id, url, urlCode }) => (<li key={id} className={`pagination-item ${isActivated(id)}`} onClick={() => {setCount(id), setActive(id), handleKooky(id)}}><span>{id}</span></li>))} 
                         </ul></div>
                     </div>
                 <div className={`section-player ${isChange(1)}`}>
-                    <iframe style={{width: "100%"}} src={`https://embed.mystream.to/${serie.saisons.saison[SaisonCount - 1].episodes[Count - 1].url}`} scrolling="no" frameBorder="0" width="700" height="420" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>    
+                    <iframe style={{width: "100%"}} src={`https://embed.mystream.to/${serie.saisons.saison[SaisonCount - 1].episodes[Count - 1 || 0].url}`} scrolling="no" frameBorder="0" width="700" height="420" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>    
             </div>
             <div className={`section-player-up ${isChange(2)}`}>
-                <iframe style={{width: '100%'}} src={`https://upstream.to/embed-${serie.saisons.saison[SaisonCount - 1].episodes[Count - 1].urlCode}.html`} scrolling="no" frameBorder="0" width="700" height="420" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+                <iframe style={{width: '100%'}} src={`https://upstream.to/embed-${serie.saisons.saison[SaisonCount - 1].episodes[Count - 1 || 0].urlCode}.html`} scrolling="no" frameBorder="0" width="700" height="420" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
             </div>
 
             <div className="change-player">
-                <h3>Choix de Platforme : </h3>
+                <h3>Choix de Platforme :</h3>
+                <span style={{ display: 'block', color: 'orange', fontSize: '1.4em', textAlign: 'center' }} > {0} </span>
                 <ul className="change-player-menu">
                     <li className={`change-player-item ${isChange()}`} onClick={() => setChange(1)}><span style={{color:'#f7db61'}}>My</span>stream</li>
                     <li className={`change-player-item-up ${isChange()}`} onClick={() => setChange(2)}><span style={{color:'#02b9c0'}}>Up</span>stream</li>
