@@ -31,9 +31,6 @@ const Player = ({ serie, cookies }) => {
                 maxAge: 30 * 24 * 60 * 60,
                 path: `/series/${Slugy}`,
                 sameSite: "lax",
-                secure: true,
-                httpOnly:true,
-                domain: 'droppy.now.sh'
             })
         
         return cookies
@@ -49,9 +46,6 @@ const Player = ({ serie, cookies }) => {
                 maxAge: 30 * 24 * 60 * 60,
                 path: `/series/${Slugy}`,
                 sameSite: "lax",
-                secure: true,
-                httpOnly:true,
-                domain: 'droppy.now.sh'
             })
         
         return cookies
