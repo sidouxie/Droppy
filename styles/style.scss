@@ -510,3 +510,12 @@ label{
         }
     }
 }
+
+.resume-info{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    margin-top: 1em;
+}
