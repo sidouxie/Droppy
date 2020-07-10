@@ -6,9 +6,11 @@ import Player from '../../components/Player';
 import React, { useEffect, useState } from 'react';
 
 
+
 const graphcms = new GraphQLClient(process.env.API_URL);
 
 export async function getStaticProps({ params }) {
+
     const { filmes } = await graphcms.request(
         `
             {
@@ -48,6 +50,7 @@ export async function getStaticProps({ params }) {
         query ProductPageQuery($slug : String!) {
             serie(where : {slug: $slug}) {
                 title
+                slug
                 type
                 description
                 year
@@ -95,7 +98,7 @@ export async function getStaticPaths() {
 }
 
 
-export default ({ filmes, series, serie, initialCount }) => {
+export default ({ filmes, series, serie }) => {
     const [Query, setQuery] = useState([]);
 
     useEffect(() => {
@@ -126,7 +129,7 @@ export default ({ filmes, series, serie, initialCount }) => {
                         </div>
                     </div>
             
-                    <Player serie={serie} initialCount={initialCount} />
+                    <Player serie={serie} />
                 </Layout>
             </QueryContext.Provider>
         </React.Fragment>

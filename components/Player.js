@@ -14,21 +14,24 @@ export async function getServerSideProps({ ctx }) {
 
 const Player = ({ serie, cookies }) => {
     const [Count, setCount] = useState(1);
-
-    const [Kooky, setKooky] = useState(() => parseCookies(cookies));
-
-    console.log(Kooky)
+    const [Slugy] = useState(serie.slug);
+    const [Kooky, setKooky] = useState([parseCookies(cookies)]);
+    if (Kooky === undefined) {
+        setKooky(['1'])
+    }
 
     function handleKooky(id) {
             // Simply omit context parameter.
             // Parse
             const cookies = parseCookies()
-            
 
             // Set
             setCookie(id, 'fromClient', id, {
                 maxAge: 30 * 24 * 60 * 60,
-                path: '/',
+                path: `/series/${Slugy}`,
+                sameSite: "lax",
+                httpOnly: true,
+                secure: true,
             })
         
         return cookies
@@ -67,18 +70,26 @@ const Player = ({ serie, cookies }) => {
                     <div className="pagination">
                         <ul className="pagination-episodes">
                             {serie.saisons.saison[SaisonCount - 1].episodes.map(({ title, id, url, urlCode }) => (<li key={id} className={`pagination-item ${isActivated(id)}`} onClick={() => {setCount(id), setActive(id), handleKooky(id)}}><span>{id}</span></li>))} 
-                        </ul></div>
+                        </ul>
                     </div>
+                    </div>
+            
+            <div className="alert alert-info">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fillRule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                    <circle cx="8" cy="4.5" r="1"/>
+                </svg> Dernier épisode regardé : <span className="alert-link"> épisode {parseInt(Kooky[0].fromClient)}</span></div>
+            
                 <div className={`section-player ${isChange(1)}`}>
-                    <iframe style={{width: "100%"}} src={`https://embed.mystream.to/${serie.saisons.saison[SaisonCount - 1].episodes[Count - 1 || 0].url}`} scrolling="no" frameBorder="0" width="700" height="420" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>    
+                    <iframe style={{width: "100%"}} src={`https://embed.mystream.to/${serie.saisons.saison[SaisonCount - 1].episodes[ Count - 1].url}`} scrolling="no" frameBorder="0" width="700" height="300" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>    
             </div>
             <div className={`section-player-up ${isChange(2)}`}>
-                <iframe style={{width: '100%'}} src={`https://upstream.to/embed-${serie.saisons.saison[SaisonCount - 1].episodes[Count - 1 || 0].urlCode}.html`} scrolling="no" frameBorder="0" width="700" height="420" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+                <iframe style={{width: '100%'}} src={`https://upstream.to/embed-${serie.saisons.saison[SaisonCount - 1].episodes[ Count - 1].urlCode}.html`} scrolling="no" frameBorder="0" width="700" height="300" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
             </div>
 
             <div className="change-player">
                 <h3>Choix de Platforme :</h3>
-                <span style={{ display: 'block', color: 'orange', fontSize: '1.4em', textAlign: 'center' }} > {0} </span>
                 <ul className="change-player-menu">
                     <li className={`change-player-item ${isChange()}`} onClick={() => setChange(1)}><span style={{color:'#f7db61'}}>My</span>stream</li>
                     <li className={`change-player-item-up ${isChange()}`} onClick={() => setChange(2)}><span style={{color:'#02b9c0'}}>Up</span>stream</li>

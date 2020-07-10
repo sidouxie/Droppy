@@ -18,10 +18,10 @@ const PlayerFilme = ({filme}) => {
                     </div>
                     </div>
                 <div className={`section-player ${isChange(1)}`}>
-                    <iframe style={{width: "100%"}} src={`https://embed.mystream.to/${filme.apiurl}`} scrolling="no" frameBorder="0" width="700" height="420" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>    
+                    <iframe style={{width: "100%"}} src={`https://embed.mystream.to/${filme.apiurl}`} scrolling="no" frameBorder="0" width="700" height="300" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>    
             </div>
             <div className={`section-player-up ${isChange(2)}`}>
-                <iframe style={{width: '100%'}} src={`https://upstream.to/embed-${filme.urlCode}.html`} scrolling="no" frameBorder="0" width="700" height="420" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+                <iframe style={{width: '100%'}} src={`https://upstream.to/embed-${filme.urlCode}.html`} scrolling="no" frameBorder="0" width="700" height="300" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
             </div>
 
             <div className="change-player">
