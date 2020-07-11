@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { parseCookies, setCookie, destroyCookie } from 'nookies'
 
+//rajout des filmes
 
 export async function getServerSideProps({ ctx }) {
     const cookies = parseCookies(ctx)
