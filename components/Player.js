@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { parseCookies, setCookie, destroyCookie } from 'nookies'
-import { parse } from 'cookie';
 
 
 export async function getServerSideProps({ ctx }) {
