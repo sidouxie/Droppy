@@ -33,6 +33,8 @@ export async function getStaticProps() {
         props: {
             filmes,
             series,
+
+            unstable_revalidate: 1
         },
     };
 }
