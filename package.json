@@ -13,7 +13,7 @@
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
     "cookie": "^0.4.1",
-    "downshift": "^5.4.5",
+    "downshift": "^5.4.6",
     "graphql-request": "^2.0.0",
     "js-cookie": "^2.2.1",
     "next": "^9.4.4",
