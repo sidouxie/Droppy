@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { parseCookies, setCookie, destroyCookie } from 'nookies'
+import { parseCookies, setCookie, destroyCookie } from 'nookies';
+import AdBlockDetect from 'react-ad-block-detect';
+import PropTypes from 'prop-types';
+
 
 //rajout des filmes
 
@@ -95,7 +98,13 @@ const Player = ({ serie, cookies }) => {
                     <circle cx="8" cy="4.5" r="1"/>
                 </svg> Votre dernier épisode visionné : <span className="alert-link"> Saison {parseInt(Kooky[0].fromSaison)} Épisode {parseInt(Kooky[0].fromClient)} 👀</span> ( Veuillez actualiser le site pour afficher ! )</div>
             
-                <div className={`section-player ${isChange(1)}`}>
+            <AdBlockDetect>
+                <div className="adblock-wrapper">
+                    <div className="detect-adblock"><span>⛔ s'il vous plaît veuillez désactiver votre Adblock pour lire l'épisode</span></div>
+                </div>
+            </AdBlockDetect>
+
+            <div className={`section-player ${isChange(1)}`}>
                     <iframe style={{width: "100%"}} src={`https://embed.mystream.to/${serie.saisons.saison[SaisonCount - 1].episodes[ Count - 1].url}`} scrolling="no" frameBorder="0" width="700" height="300" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>    
             </div>
             <div className={`section-player-up ${isChange(2)}`}>

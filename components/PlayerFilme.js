@@ -1,4 +1,6 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
+import AdBlockDetect from 'react-ad-block-detect';
+import PropTypes from 'prop-types';
 
 
 const PlayerFilme = ({filme}) => {
@@ -17,13 +19,20 @@ const PlayerFilme = ({filme}) => {
                         <h3>Filme: {filme.title} en VF </h3>
                     </div>
                     </div>
-                <div className={`section-player ${isChange(1)}`}>
-                    <iframe style={{width: "100%"}} src={`https://embed.mystream.to/${filme.apiurl}`} scrolling="no" frameBorder="0" width="700" height="300" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>    
+            <AdBlockDetect>
+                <div className="adblock-wrapper">
+                    <div className="detect-adblock"><span>⛔ s'il vous plaît veuillez désactiver votre Adblock pour lire le filme</span></div>
+                </div>
+            </AdBlockDetect>
+
+            <div className={`section-player ${isChange(1)}`}>
+                <iframe style={{width: "100%"}} src={`https://embed.mystream.to/${filme.apiurl}`} scrolling="no" frameBorder="0" width="700" height="300" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>    
             </div>
+
             <div className={`section-player-up ${isChange(2)}`}>
                 <iframe style={{width: '100%'}} src={`https://upstream.to/embed-${filme.urlCode}.html`} scrolling="no" frameBorder="0" width="700" height="300" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
             </div>
-
+        
             <div className="change-player">
                 <h3>Choix de Platforme : </h3>
                 <ul className="change-player-menu">
