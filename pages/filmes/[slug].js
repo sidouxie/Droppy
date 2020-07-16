@@ -39,6 +39,8 @@ export async function getStaticProps({ params }) {
                 description
                 year
                 scenario
+                stars
+                starstext
                 category
                 duree
                 apiurl
@@ -112,7 +114,7 @@ export default ({ filmes, filme, series }) => {
                                     <p><strong>Durée du filme</strong> :  {filme.duree} Min. </p>
                                     <p><strong>Résumé</strong> :  {filme.description} </p>
                                     <p><strong>Année de sortie</strong> :  {filme.year} </p>
-                                    <StarsRating />
+                                    <StarsRating stars={filme.stars} starstext={filme.starstext} />
                                 </div>
                                 <div className="section-two"><img src={filme.cover.url} alt={filme.cover.fileName} /></div>
                             </div>

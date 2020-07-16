@@ -1,8 +1,8 @@
 import React,{ useState} from "react";
 import { FaStar } from "react-icons/fa";
 
-function StarsRating() {
-    const [Rating, setRating] = useState(4)
+function StarsRating({stars, starstext}) {
+    const [Rating, setRating] = useState(parseFloat(stars))
     return (
         <div className='section-star'>
             <h5>SPECTATEURS</h5>
@@ -26,7 +26,7 @@ function StarsRating() {
                 </div>
                 <span className='star-eval-text'>{Rating}</span>
             </div>
-            <span style={{fontSize:'13px',fontStyle:'italic'}} >429 notes dont 28 critiques</span>
+            <span style={{fontSize:'13px',fontStyle:'italic'}} >{starstext}</span>
         </div>
     )
 }

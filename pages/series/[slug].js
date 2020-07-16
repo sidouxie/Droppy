@@ -57,6 +57,8 @@ export async function getStaticProps({ params }) {
                 description
                 year
                 scenario
+                stars
+                starstext
                 category
                 cover {
                     id
@@ -125,7 +127,7 @@ export default ({ filmes, series, serie }) => {
                                     <p><strong>Réalisateur</strong> :  {serie.scenario} </p>
                                     <p><strong>Résumé</strong> :  {serie.description} </p>
                                     <p><strong>Année de sortie</strong> :  {serie.year} </p>
-                                    <StarsRating />
+                                    <StarsRating stars={serie.stars} starstext={serie.starstext} />
                                 </div>
                                 <div className="section-two"><img src={serie.cover.url} alt={serie.cover.fileName} /></div>
                             </div>
