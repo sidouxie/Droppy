@@ -3,6 +3,7 @@ import Layout from '../../components/Layout';
 import Head from 'next/head';
 import { QueryContext } from '../../components/FilmesContext';
 import PlayerFilme from '../../components/PlayerFilme';
+import StarsRating from '../../components/StarsRating';
 import React, { useEffect, useState } from 'react';
 
 
@@ -111,6 +112,7 @@ export default ({ filmes, filme, series }) => {
                                     <p><strong>Durée du filme</strong> :  {filme.duree} Min. </p>
                                     <p><strong>Résumé</strong> :  {filme.description} </p>
                                     <p><strong>Année de sortie</strong> :  {filme.year} </p>
+                                    <StarsRating />
                                 </div>
                                 <div className="section-two"><img src={filme.cover.url} alt={filme.cover.fileName} /></div>
                             </div>

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import AdBlockDetect from 'react-ad-block-detect';
 import PropTypes from 'prop-types';
 
-
 const PlayerFilme = ({filme}) => {
     
     const [Change, setChange] = useState(2);
@@ -18,7 +17,8 @@ const PlayerFilme = ({filme}) => {
                     <div className="section-one">
                         <h3>Filme: {filme.title} en VF </h3>
                     </div>
-                    </div>
+            </div>
+            
             <AdBlockDetect>
                 <div className="adblock-wrapper">
                     <div className="detect-adblock"><span>⛔ s'il vous plaît veuillez désactiver votre Adblock pour lire le filme</span></div>
