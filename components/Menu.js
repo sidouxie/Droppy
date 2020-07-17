@@ -31,7 +31,7 @@ function Menu(props) {
                         <FaBars onClick={() => setShow(!Show)} size={25} color={'#fff'} style={{cursor:'pointer'}} />
                     </div>
 
-                    <div className={`menu-links ${!Show ? 'active' : ''}`}>
+                    <div className={`menu-links ${Show && 'active'}`}>
                         <FaTimes onClick={() => setShow(!Show)} size={25} color={'#fff'} style={{position:'absolute',top:'20px',right:'45px',cursor:'pointer'}} />
                         <ul>
                             <li><Link href="/"><a className="nav-a">Acceuil</a></Link></li>
