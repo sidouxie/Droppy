@@ -7,6 +7,7 @@ import {QueryContext} from '../components/FilmesContext'
 
 
 
+
 export async function getStaticProps() {
     const graphcms = new GraphQLClient(process.env.API_URL); 
 
@@ -113,11 +114,12 @@ export default ({ filmes, series }) => {
             {filmes.slice(0,10).map(({ title, slug, cover, category, year }) => (
                 <div key={slug} className="container-card">
                     <Link href={`/filmes/${slug}`} ><img className="carouselCard" src={cover.url} alt={title} /></Link>
+
                     <div className="info-card">
-                    <h5> {title} </h5>
-                        <p> {category}, {year}</p>
-                       
-                </div>
+                        <h5> {title} </h5>
+                            <p> {category}, {year}</p>
+                        
+                        </div>           
                 </div>
         ))}
         </Carousel> 
