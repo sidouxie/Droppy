@@ -18,6 +18,7 @@ nav{
 
 .menu-links{
     display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -25,7 +26,7 @@ nav{
     height: 100vh;
     top: 0;
     left: 0;
-    background-color: rgba(0,0,0,0.98);
+    background-color: rgba(9, 7, 25, 0.99);
     z-index: 100;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -49,11 +50,34 @@ nav{
 
     li a{
         font-size: 1.5em;
-        font-weight: 700;
+        font-weight: 300;
         color: #fff;
 
         &:hover{
             color: #0e27d2;
+        }
+    }
+
+    h3{
+        color: aliceblue;
+        font-size: 4em;
+        letter-spacing: 15px;
+        font-style: italic;
+        margin: 0.5em auto;
+    }
+
+    .foot-menu{
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: auto;
+
+        .ligne{
+            margin: 1em auto;
+            width: 90%;
+            height: 2px;
+            background: linear-gradient(45deg, #0062cc,#af2986, #bd2121);
         }
     }
 

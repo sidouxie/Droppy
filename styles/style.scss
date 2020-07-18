@@ -307,6 +307,16 @@ label{
     }
 }
 
+.page-link:active{
+    z-index: 2;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    color: #0056b3;
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+
 .option-saison{
     width: 50vw;
     height: auto;
@@ -505,6 +515,7 @@ label{
         width: 160px;
         height: 270px;
         cursor: pointer;
+        box-shadow: 2px 1px 5px rgba(0,0,0,0.8);
 
         .container-items-item-img{
             width: 100%;
@@ -517,16 +528,16 @@ label{
         .container-items-item-info{
             display: flex;
             flex-direction: column;
-            padding: 1em;
+            padding: 0.5em;
             text-align: center;
 
             h5{
                 color: #fff;
-                font-size: medium;
+                font-size: 15px;
             }
             p{
                 color: rgba(255, 255, 255, 0.6);
-                font-size: small;
+                font-size: 11px;
             }
         }
     }

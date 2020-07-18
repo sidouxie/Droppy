@@ -32,7 +32,8 @@ function Menu(props) {
                     </div>
 
                     <div className={`menu-links ${Show && 'active'}`}>
-                        <FaTimes onClick={() => setShow(!Show)} size={25} color={'#fff'} style={{position:'absolute',top:'20px',right:'45px',cursor:'pointer'}} />
+                        <FaTimes onClick={() => setShow(!Show)} size={25} color={'#fff'} style={{ position: 'absolute', top: '20px', right: '45px', cursor: 'pointer' }} />
+                        <h3>MENU</h3>
                         <ul>
                             <li><Link href="/"><a className="nav-a">Acceuil</a></Link></li>
                             <li><Link href="/filmes"><a className="nav-a">Filmes</a></Link></li>
@@ -40,6 +41,10 @@ function Menu(props) {
                             <li><Link href="/animes"><a className="nav-a">Animes</a></Link></li>
                             <li><Link href="/a-propos"><a className="nav-a">à propos</a></Link></li>
                         </ul>
+                        <div className="foot-menu">
+                            <span className="ligne"></span>
+                            <span><img src='/static/new-droppy.svg' alt='Droppy logo' style={{ width:'90px'}} /></span>
+                        </div>
                     </div>
                 </nav>
             </header>
