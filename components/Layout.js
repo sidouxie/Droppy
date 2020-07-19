@@ -1,7 +1,7 @@
 import React from 'react';
-import Nav from './Nav';
 import Head from 'next/head';
-import Menu from './Menu'
+import Menu from './Menu';
+import Footer from './Footer';
 
 
 const Layout = (props) => {
@@ -17,7 +17,8 @@ const Layout = (props) => {
 
                 <div className='min-Width'>
                     <Menu />
-                    { props.children }
+                    {props.children}
+                    <Footer />
                 </div>
         </>
     )

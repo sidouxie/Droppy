@@ -54,7 +54,7 @@ nav{
         color: #fff;
 
         &:hover{
-            color: #0e27d2;
+            color: #0062cc;
         }
     }
 
@@ -63,7 +63,7 @@ nav{
         font-size: 4em;
         letter-spacing: 15px;
         font-style: italic;
-        margin: 0.5em auto;
+        margin-bottom: 0.5em;
     }
 
     .foot-menu{
@@ -74,7 +74,7 @@ nav{
         height: auto;
 
         .ligne{
-            margin: 1em auto;
+            margin-bottom: 1em;
             width: 90%;
             height: 2px;
             background: linear-gradient(45deg, #0062cc,#af2986, #bd2121);
