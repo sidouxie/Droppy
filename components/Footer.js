@@ -9,7 +9,7 @@ function Footer() {
                     <ul>
                         <li><Link href="/CGU" ><a className='link' >CGU</a></Link> | </li>
                         <li><Link href="/Politique-de-cookies" ><a className='link' >Politique de cookies</a></Link> | </li>
-                        <li><Link href="/Donnees-Personnelles" ><a className='link' >Données Personnelles</a></Link> | </li>
+                        <li><Link href="/Politique-de-confidentialite" ><a className='link' >Politique de confidentialité</a></Link> | </li>
                         <li><Link href="/DMCA" ><a className='link' >DMCA</a></Link></li>
                     </ul>
                 </div>
