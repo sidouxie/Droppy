@@ -4,6 +4,7 @@ import { QueryContext } from '../components/FilmesContext';
 import { GraphQLClient } from 'graphql-request';
 import FilmesPost from '../components/FilmesPost';
 import Pagination from '../components/Pagination';
+import PropTypes from 'prop-types';
 
 export async function getStaticProps() {
     const graphcms = new GraphQLClient(process.env.API_URL); 
@@ -32,9 +33,7 @@ export async function getStaticProps() {
     return {
         props: {
             filmes,
-            series,
-
-            unstable_revalidate: 1
+            series
         },
     };
 }
@@ -56,7 +55,7 @@ const Filmes = ({ filmes,series }) => {
     const currentFilme = filmes.slice(indexOfFirstFilme, indexOfLastFilme);
 
     //change page
-    const paginate = (pageNumber) => setCurrentPage(pageNumber)
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return ( 
             <QueryContext.Provider value={Query}>
@@ -86,3 +85,8 @@ const Filmes = ({ filmes,series }) => {
 }
 
 export default Filmes;
+
+Filmes.propTypes = {
+    filmes: PropTypes.array.isRequired,
+    series: PropTypes.array.isRequired,
+}

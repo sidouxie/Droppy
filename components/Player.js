@@ -123,3 +123,8 @@ const Player = ({ serie, cookies }) => {
 }
 
 export default Player;
+
+Player.propTypes = {
+    cookies: PropTypes.array.isRequired,
+    serie: PropTypes.array.isRequired,
+}

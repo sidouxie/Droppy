@@ -4,6 +4,8 @@ import { QueryContext } from '../components/FilmesContext';
 import { GraphQLClient } from 'graphql-request';
 import SeriesPost from '../components/SeriesPost';
 import Pagination from '../components/Pagination';
+import PropTypes from 'prop-types';
+
 
 
 export async function getStaticProps() {
@@ -86,3 +88,8 @@ const series = ({ filmes, series }) => {
 }
 
 export default series;
+
+series.propTypes = {
+    filmes: PropTypes.array.isRequired,
+    series: PropTypes.array.isRequired,
+}

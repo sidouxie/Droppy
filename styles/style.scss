@@ -518,6 +518,11 @@ label{
         cursor: pointer;
         box-shadow: 2px 1px 5px rgba(0,0,0,0.8);
 
+        &.active{
+            border: #0e27d2 2px solid;
+            transition: searchAnime 1s ease-in-out;
+        }
+
         .container-items-item-img{
             width: 100%;
             height: 60%;

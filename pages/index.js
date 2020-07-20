@@ -86,7 +86,6 @@ export default ({ filmes, series }) => {
     
     return (
         <QueryContext.Provider value={ Query } >
-    
         <Layout>
         <div className="fluid">
             <div className="image-fluid">
