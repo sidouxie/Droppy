@@ -6,6 +6,8 @@ import FilmesPost from '../components/FilmesPost';
 import Pagination from '../components/Pagination';
 import PropTypes from 'prop-types';
 
+//Ajoute de la DAta
+
 export async function getStaticProps() {
     const graphcms = new GraphQLClient(process.env.API_URL); 
     
