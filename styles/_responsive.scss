@@ -2,6 +2,12 @@
     .container-items{
         grid-template-columns: 1fr 1fr;
     }
+    .sectionText h1{
+        font-size: 2.6em !important;
+    }
+    .sectionText h2{
+        font-size: 1.35em !important;
+    }
 }
 
 @media only screen and (min-width: 450px) {

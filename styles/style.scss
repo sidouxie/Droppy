@@ -15,7 +15,7 @@
         font-weight: 700;
         letter-spacing: -1px;
         margin-bottom: 1rem;
-        line-height: 1;
+        line-height: 1.125;
     }
     h2{
         font-size: 1.5em;
@@ -316,6 +316,19 @@ label{
     text-decoration: none;
     background-color: #e9ecef;
     border-color: #dee2e6;
+}
+
+.page-link{
+    &.active{
+        font-weight: 900;
+        z-index: 2;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+        color: #0056b3;
+        text-decoration: none;
+        background-color: #e9ecef;
+        border-color: #dee2e6;
+    }
 }
 
 .option-saison{

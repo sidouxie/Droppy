@@ -1,11 +1,24 @@
 @import 'anim';
 
 
-header{
+.header-menu{
     position: fixed;
     width: 100%;
     height: auto;
     z-index: 10;
+
+    &.hidden{
+        visibility: hidden;
+        transition: all .3s ease-in-out;
+        top:-30px;
+        opacity: 0;
+    }
+    &.active{
+        visibility: visible;
+        top:0px;
+        transition: all .3s ease-in-out;
+        background-color: rgba(12, 14, 19, .95);
+    }
 }
 
 nav{
@@ -26,7 +39,7 @@ nav{
     height: 100vh;
     top: 0;
     left: 0;
-    background-color: rgba(9, 7, 25, 0.99);
+    background-color: rgba(6, 9, 16, 0.99);
     z-index: 100;
     text-transform: uppercase;
     letter-spacing: 2px;
