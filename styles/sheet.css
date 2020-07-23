@@ -3,9 +3,9 @@ body{
     overflow-x: hidden;
 }
 
-iframe[data-glx="yeap"]{
-    /* position: relative !important; */
-    height: 0% !important;
+iframe{
+    position: relative !important;
+    /* height: 0% !important; */
 }
 
 .min-Width{
