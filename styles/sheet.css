@@ -3,6 +3,11 @@ body{
     overflow-x: hidden;
 }
 
+iframe[data-glx="yeap"]{
+    /* position: relative !important; */
+    height: 0% !important;
+}
+
 .min-Width{
     min-width: auto;
 }
