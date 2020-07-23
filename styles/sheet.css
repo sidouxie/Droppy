@@ -4,8 +4,7 @@ body{
 }
 
 iframe{
-    position: relative !important;
-    /* height: 0% !important; */
+    height: 340px !important;
 }
 
 .min-Width{
