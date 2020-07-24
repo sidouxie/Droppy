@@ -13,9 +13,9 @@ const PlayerFilme = ({filme}) => {
 
     return (
         <div>
-                <div className="section-info">
-                    <div className="section-one">
-                        <h3>Filme: {filme.title} en VF </h3>
+                <div className="section-vilain">
+                    <div className="section-vilain-items">
+                        <h3 style={{textAlign:'center'}}><span className="item-strong">{filme.title} en VF </span></h3>
                     </div>
             </div>
             

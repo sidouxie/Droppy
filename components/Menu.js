@@ -28,7 +28,10 @@ function Menu(props) {
     
     function isChanging() {
         const changing = Showed.isWeed;
-        return changing ? 'active' : 'hidden';
+        if (ScrollPos === 0) {
+            changing && 'active';
+        } else return changing ? 'active' : 'hidden';
+        
     }
 
     const Data = useContext(QueryContext);
