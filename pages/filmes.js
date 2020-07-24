@@ -65,6 +65,7 @@ const Filmes = ({ filmes,series }) => {
                         <div className='section-images'>{filmes.slice(0, 4).map(({ title, slug, cover,year,category }) => (
                             <div key={slug} className="bg-image">
                                 <img className='bg-item' src={cover.url} alt={title} />
+                                <div className="bg-overlay"></div>
                                 <div className="section-text">
                                     <span className="title">{title}</span>
                                     <span className="ligne-orange"></span>
