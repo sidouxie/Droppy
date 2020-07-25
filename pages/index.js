@@ -14,7 +14,8 @@ export async function getStaticProps() {
     const { filmes } = await graphcms.request(
         `
             {
-                filmes (orderBy:year_DESC){
+                filmes (orderBy:year_DESC, last:120){
+                    id
                     type
                     title
                     slug
@@ -83,7 +84,7 @@ export default ({ filmes, series }) => {
         const data = setQuery([...filmes, ...series])
         return data
     }, [])
-    
+
     return (
         <QueryContext.Provider value={ Query } >
         <Layout>
@@ -110,8 +111,8 @@ export default ({ filmes, series }) => {
                 customTransition="all .3 ease-in"
                 transitionDuration={300}
             >
-            {filmes.slice(0,10).map(({ title, slug, cover, category, year }) => (
-                <div key={slug} className="container-card">
+            {filmes.slice(0,10).map(({ id, title, slug, cover, category, year }) => (
+                <div key={id} className="container-card">
                     <Link href={`/filmes/${slug}`} ><img className="carouselCard" src={cover.url} alt={title} /></Link>
 
                     <div className="info-card">

@@ -18,7 +18,7 @@ export async function getStaticProps({ params }) {
     const { filmes } = await graphcms.request(
         `
             {
-                filmes (orderBy:year_DESC){
+                filmes (orderBy:year_DESC, last: 120){
                     title
                     type
                     slug
@@ -71,7 +71,7 @@ export async function getStaticPaths() {
     const { filmes } = await graphcms.request(
         `
             {
-                filmes {
+                filmes(last:120) {
                     slug 
                     title
                 }
@@ -95,9 +95,8 @@ export default ({ filmes, filme, series }) => {
         const data = setQuery([...filmes, ...series])
         return data
     }, [])
-
     return(
-    
+        
         <React.Fragment>
             <QueryContext.Provider value={Query}>
                 <Layout>
