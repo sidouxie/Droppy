@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import AdBlockDetect from 'react-ad-block-detect';
-import PropTypes from 'prop-types';
 
 const PlayerFilme = ({filme}) => {
     

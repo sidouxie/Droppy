@@ -3,7 +3,7 @@ import React, {useEffect,useState} from 'react';
 import { QueryContext } from '../components/FilmesContext';
 import { GraphQLClient } from 'graphql-request';
 import FilmesPost from '../components/FilmesPost';
-import Pagination from '../components/Pagination';
+import NewPagi from '../components/NewPagi';
 import PropTypes from 'prop-types';
 
 export async function getStaticProps() {
@@ -79,7 +79,8 @@ const Filmes = ({ filmes,series }) => {
                 </div>
                 
                 <FilmesPost filmes={currentFilme} />
-                <Pagination filmePerPage={FilmesPerPage} totalFilmes={filmes.length} paginate={paginate} />
+                {/* <Pagination filmePerPage={FilmesPerPage} totalFilmes={filmes.length} paginate={paginate} /> */}
+                <NewPagi filmePerPage={FilmesPerPage} totalFilmes={filmes.length} paginate={paginate} CurrentPage={CurrentPage} />
                 </Layout>
             </QueryContext.Provider>
     )

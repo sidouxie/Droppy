@@ -3,7 +3,7 @@ import React,{useEffect,useState} from 'react';
 import { QueryContext } from '../components/FilmesContext';
 import { GraphQLClient } from 'graphql-request';
 import SeriesPost from '../components/SeriesPost';
-import Pagination from '../components/Pagination';
+import NewPagi from '../components/NewPagi';
 import PropTypes from 'prop-types';
 
 
@@ -82,7 +82,8 @@ const series = ({ filmes, series }) => {
                 </div>
 
                 <SeriesPost series={currentSerie} />
-                <Pagination filmePerPage={SeriesPerPage} totalFilmes={series.length} paginate={paginate} />
+                {/* <Pagination filmePerPage={SeriesPerPage} totalFilmes={series.length} paginate={paginate} /> */}
+                <NewPagi filmePerPage={SeriesPerPage} totalFilmes={series.length} paginate={paginate} CurrentPage={CurrentPage} />
             </Layout>
             </QueryContext.Provider>
     )

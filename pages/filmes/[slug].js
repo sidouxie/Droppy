@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { QueryContext } from '../../components/FilmesContext';
 import PlayerFilme from '../../components/PlayerFilme';
 import StarsRating from '../../components/StarsRating';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState} from 'react';
 
 
 
