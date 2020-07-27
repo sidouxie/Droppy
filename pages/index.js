@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { GraphQLClient } from 'graphql-request';
 import Layout from '../components/Layout';
 import Carousel from 'react-multi-carousel';
-import {QueryContext} from '../components/FilmesContext'
+import { QueryContext } from '../components/FilmesContext'
 
 
 
@@ -102,7 +102,7 @@ export default ({ filmes, series }) => {
         <div className="titre-desc">
             <h3>Filmes en tendances : </h3>
         </div>
-            <Carousel
+        <Carousel
                 responsive={responsive}
                 ssr
                 infinite={false}
