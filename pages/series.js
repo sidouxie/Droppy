@@ -29,7 +29,7 @@ export async function getStaticProps() {
     );
 
     const { series } = await graphcms.request(
-        `{series(orderBy:year_DESC){title slug type year category cover{url}}}`
+        `{series(orderBy:year_DESC){title slug type year stars category cover{url}}}`
     )
 
 

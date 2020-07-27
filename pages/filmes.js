@@ -22,6 +22,7 @@ export async function getStaticProps() {
                     slug
                     category
                     year
+                    stars
                     cover {
                         url
                     }
