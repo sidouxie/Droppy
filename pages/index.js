@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { GraphQLClient } from 'graphql-request';
+import { GraphQLClient, request } from 'graphql-request';
 import Layout from '../components/Layout';
 import Carousel from 'react-multi-carousel';
 import { QueryContext } from '../components/FilmesContext'
@@ -47,13 +47,31 @@ export async function getStaticProps() {
         `
     );
 
+    const trends = `{
+        filmes(orderBy: year_DESC, where: {stars_contains: "4"}){
+            id
+            type
+            title
+            slug
+            category
+            year
+            cover {
+                url
+            }
+          }
+    }`
+
+    const trendFilme = await graphcms.request(trends);
+
     return {
         props: {
                 filmes,
                 series,
+                trendFilme
         },
     };
 }
+
 
 const responsive = {
     superLargeDesktop: {
@@ -76,9 +94,10 @@ const responsive = {
   };
 
 
-export default ({ filmes, series }) => {
+export default ({ filmes, series, trendFilme }) => {
 
     const [Query, setQuery] = useState([]);
+    const [Trends] = useState(trendFilme);
 
     useEffect(() => {
         const data = setQuery([...filmes, ...series])
@@ -111,6 +130,33 @@ export default ({ filmes, series }) => {
                 customTransition="all .3 ease-in"
                 transitionDuration={300}
             >
+            {Trends.filmes.slice(0,10).map(({ id, title, slug, cover, category, year }) => (
+                <div key={id} className="container-card">
+                    <Link href={`/filmes/${slug}`} ><img className="carouselCard" src={cover.url} alt={title} /></Link>
+
+                    <div className="info-card">
+                        <h5> {title} </h5>
+                            <p> {category}, {year}</p>
+                        
+                        </div>           
+                </div>
+        ))}
+        </Carousel>
+
+        {/* Dernier filme Rajouté */}
+                
+        <div className="titre-desc">
+            <h3>Dernier filme rajouté : </h3>
+        </div>
+        <Carousel
+                responsive={responsive}
+                ssr
+                infinite={false}
+                swipeable={true}
+                draggable={true}
+                customTransition="all .3 ease-in"
+                transitionDuration={300}
+            >
             {filmes.slice(0,10).map(({ id, title, slug, cover, category, year }) => (
                 <div key={id} className="container-card">
                     <Link href={`/filmes/${slug}`} ><img className="carouselCard" src={cover.url} alt={title} /></Link>
@@ -122,7 +168,7 @@ export default ({ filmes, series }) => {
                         </div>           
                 </div>
         ))}
-        </Carousel> 
+        </Carousel>
             
         <div className="titre-desc">
             <h3>Séries en tendances : </h3>

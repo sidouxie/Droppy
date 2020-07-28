@@ -4,6 +4,13 @@
 @import 'menu';
 @import 'footer';
 
+// Les options du sites et les variables :
+//  Couleurs :
+$primary-color : #0e27d9;
+$secondary-color : #0a1c99;
+$darky-color : #050e4d;
+$body-color: #090a0c;
+
 
 .sectionText{
     position: absolute;
@@ -84,8 +91,24 @@
 }
 
 .titre-desc{
+    width: 100%;
+    height: 60px;
     color: #fff;
-    margin: 2em 0 2em 1em; 
+    padding: 0.5em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: #1e232f;
+    background: linear-gradient(-45deg, #0c0e13, #171b25);
+
+    h3{
+        text-align: center;
+        letter-spacing: 1px;
+        font-weight: 400;
+        font-style: italic;
+        margin: 0;
+    }
 }
 
 .container-card{
