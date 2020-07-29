@@ -14,7 +14,7 @@ export async function getStaticProps() {
     const { filmes } = await graphcms.request(
         `
             {
-                filmes (orderBy:year_DESC, last:120){
+                filmes (orderBy:year_DESC, last:500){
                     id
                     type
                     title
