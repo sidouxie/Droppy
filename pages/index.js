@@ -94,7 +94,7 @@ const responsive = {
   };
 
 
-export default ({ filmes, series, trendFilme }) => {
+const Index = ({ filmes, series, trendFilme }) => {
 
     const [Query, setQuery] = useState([]);
     const [Trends] = useState(trendFilme);
@@ -197,3 +197,4 @@ export default ({ filmes, series, trendFilme }) => {
         </QueryContext.Provider>
 )}
 
+export default Index;
