@@ -102,7 +102,7 @@ export async function getStaticPaths() {
 }
 
 
-export default ({ filmes, series, serie }) => {
+const serie = ({ filmes, series, serie }) => {
     const [Query, setQuery] = useState([]);
 
     useEffect(() => {
@@ -141,3 +141,5 @@ export default ({ filmes, series, serie }) => {
         
     )
 }
+
+export default serie;

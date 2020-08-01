@@ -87,7 +87,7 @@ export async function getStaticPaths() {
     };
 }
 
-export default ({ filmes, filme, series }) => {
+const filme = ({ filmes, filme, series }) => {
 
     const [Query, setQuery] = useState([]);
 
@@ -127,3 +127,5 @@ export default ({ filmes, filme, series }) => {
         
     )
 }
+
+export default filme;
