@@ -21,7 +21,7 @@ const Player = ({ serie, cookies }) => {
     const [Slugy] = useState(serie.slug);
     const [Kooky, setKooky] = useState([parseCookies(cookies)]);
     if (Kooky === undefined) {
-        return setKooky(['1']);
+        setKooky(['1']);
     }
     function handleSaison(id) {
         // Simply omit context parameter.
