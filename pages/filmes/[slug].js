@@ -18,7 +18,7 @@ export async function getStaticProps({ params }) {
     const { filmes } = await graphcms.request(
         `
             {
-                filmes (orderBy:year_DESC, last: 120){
+                filmes (orderBy:year_DESC, last: 500){
                     title
                     type
                     slug
@@ -71,7 +71,7 @@ export async function getStaticPaths() {
     const { filmes } = await graphcms.request(
         `
             {
-                filmes(last:120) {
+                filmes(last:500) {
                     slug 
                     title
                 }
