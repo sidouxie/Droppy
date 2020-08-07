@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { GraphQLClient, request, gql } from 'graphql-request';
+import { GraphQLClient, gql } from 'graphql-request';
 import Layout from '../components/Layout';
 import Carousel from 'react-multi-carousel';
 import { QueryContext } from '../components/FilmesContext'
 
-// ajout 05/8 serie
+// ajout 07/08 filmes
 
 
 export async function getStaticProps() {
