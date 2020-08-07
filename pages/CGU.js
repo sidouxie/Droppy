@@ -1,13 +1,13 @@
 import Layout from '../components/Layout';
 import React,{useEffect,useState} from 'react';
 import { QueryContext } from '../components/FilmesContext';
-import { GraphQLClient } from 'graphql-request';
+import { GraphQLClient,gql } from 'graphql-request';
 
 
 export async function getStaticProps() {
     const graphcms = new GraphQLClient(process.env.API_URL); 
 
-    const { filmes } = await graphcms.request(
+    const { filmes } = await graphcms.request(gql
         `
             {
                 filmes (orderBy:year_DESC){
@@ -24,7 +24,7 @@ export async function getStaticProps() {
         `
     );
 
-const { series } = await graphcms.request(
+const { series } = await graphcms.request(gql
         `{series{title slug type year category cover{url}}}`
     )
 
@@ -55,12 +55,12 @@ const CGU = ({ filmes, series }) => {
                         <div className="section-textil">
                             <h1>CONDITIONS GÉNÉRALES D’UTILISATION :</h1>
                             <div className="section-textil-info">
-                                <span>Cette politique s'applique au site : droppy.now.sh</span>
+                                <span>Cette politique s'applique au site : droppy.ml</span>
                                 <span>Date de dernière mise à jour : 20 juillet 2020</span>
                             </div>
                             <h3>1. Objet des Conditions Générales</h3>
                             <div className="textil">
-                                <p>Droppy propose à l’Utilisateur, sur son site Internet accessible à l’adresse https://droppy.now.sh, (ci-après « le Site »), différents services liés notamment au cinéma et séries télévisées (ci-après les « Services »). Les Services sont présentés sur les pages du Site. Par Service(s), on entend, sans que cette liste soit limitative, les contenus proposés, les éléments de mise en valeur des contenus, la mise à disposition d’outils, notamment l’outil de lecture de contenus vidéos (ci-après désigné par le terme « Lecteur(s) ») et plus généralement tout autre service proposé par Droppy et disponible notamment à l’adresse : https://droppy.now.sh et/ou à toute autre adresse qui viendrait s’ajouter ou de substituer à celle-ci.
+                                <p>Droppy propose à l’Utilisateur, sur son site Internet accessible à l’adresse https://droppy.ml, (ci-après « le Site »), différents services liés notamment au cinéma et séries télévisées (ci-après les « Services »). Les Services sont présentés sur les pages du Site. Par Service(s), on entend, sans que cette liste soit limitative, les contenus proposés, les éléments de mise en valeur des contenus, la mise à disposition d’outils, notamment l’outil de lecture de contenus vidéos (ci-après désigné par le terme « Lecteur(s) ») et plus généralement tout autre service proposé par Droppy et disponible notamment à l’adresse : https://droppy.ml et/ou à toute autre adresse qui viendrait s’ajouter ou de substituer à celle-ci.
 
 Droppy se réserve le droit d'ajouter, de supprimer ou de modifier tout ou partie des espaces des Services qu’elle propose.
 
@@ -180,7 +180,7 @@ Les données pourront être utilisées pour les besoins de la gestion des opéra
 
 Droppy conserve les données personnelles de l’Utilisateur pour la durée nécessaire aux finalités décrites au présent article et aux fins de conserver les éléments nécessaires en cas de mise en jeu de sa responsabilité contractuelle et/ou délictuelle. Au-delà de cette durée, seules des données statistiques rendues anonymes seront conservées et ne donneront lieu à aucune exploitation, de quelque nature que ce soit.
 
-Sous réserve de justifier de son identité, l’Utilisateur dispose d'un droit d'accès, de modification, de rectification et de suppression des données qui le concernent. L’Utilisateur peut mettre en œuvre ce droit en écrivant à Droppy à l'adresse électronique suivante : droppy.now.sh, ou à l’adresse postale suivante: Droppy.
+Sous réserve de justifier de son identité, l’Utilisateur dispose d'un droit d'accès, de modification, de rectification et de suppression des données qui le concernent. L’Utilisateur peut mettre en œuvre ce droit en écrivant à Droppy à l'adresse électronique suivante : droppy.ml, ou à l’adresse postale suivante: Droppy.
 
 Conformément à l'article 32 loi informatique et libertés et au vu de cette Newsletter qui collecte des données personnelles, l'utilisateur doit être informé de :
 

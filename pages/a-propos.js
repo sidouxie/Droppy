@@ -1,13 +1,13 @@
 import Layout from '../components/Layout';
 import React,{useEffect,useState} from 'react';
 import { QueryContext } from '../components/FilmesContext';
-import { GraphQLClient } from 'graphql-request';
+import { GraphQLClient,gql } from 'graphql-request';
 
 
 export async function getStaticProps() {
     const graphcms = new GraphQLClient(process.env.API_URL); 
 
-    const { filmes } = await graphcms.request(
+    const { filmes } = await graphcms.request(gql
         `
             {
                 filmes (orderBy:year_DESC){
@@ -24,7 +24,7 @@ export async function getStaticProps() {
         `
     );
 
-const { series } = await graphcms.request(
+const { series } = await graphcms.request(gql
         `{series{title slug type year category cover{url}}}`
     )
 

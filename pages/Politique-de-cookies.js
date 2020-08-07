@@ -1,13 +1,13 @@
 import Layout from '../components/Layout';
 import React,{useEffect,useState} from 'react';
 import { QueryContext } from '../components/FilmesContext';
-import { GraphQLClient } from 'graphql-request';
+import { GraphQLClient,gql } from 'graphql-request';
 
 
 export async function getStaticProps() {
     const graphcms = new GraphQLClient(process.env.API_URL); 
 
-    const { filmes } = await graphcms.request(
+    const { filmes } = await graphcms.request(gql
         `
             {
                 filmes (orderBy:year_DESC){
@@ -24,7 +24,7 @@ export async function getStaticProps() {
         `
     );
 
-const { series } = await graphcms.request(
+const { series } = await graphcms.request(gql
         `{series{title slug type year category cover{url}}}`
     )
 
@@ -55,7 +55,7 @@ const PolitiquesDeCookies = ({ filmes, series }) => {
                         <div className="section-textil">
                             <h1>POLITIQUE DE COOKIES :</h1>
                             <div className="section-textil-info" style={{color:'#b3b5bf'}}>
-                                <span>Cette politique s'applique au site : droppy.now.sh</span>
+                                <span>Cette politique s'applique au site : droppy.ml</span>
                                 <span>Date de dernière mise à jour : 20 juillet 2020</span>
                             </div>
 

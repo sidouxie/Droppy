@@ -1,13 +1,13 @@
 import Layout from '../components/Layout';
 import React,{useEffect,useState} from 'react';
 import { QueryContext } from '../components/FilmesContext';
-import { GraphQLClient } from 'graphql-request';
+import { GraphQLClient,gql } from 'graphql-request';
 
 
 export async function getStaticProps() {
     const graphcms = new GraphQLClient(process.env.API_URL); 
 
-    const { filmes } = await graphcms.request(
+    const { filmes } = await graphcms.request(gql
         `
             {
                 filmes (orderBy:year_DESC){
@@ -24,7 +24,7 @@ export async function getStaticProps() {
         `
     );
 
-const { series } = await graphcms.request(
+const { series } = await graphcms.request(gql
         `{series{title slug type year category cover{url}}}`
     )
 
@@ -55,11 +55,11 @@ const PolitiqueDeConf = ({ filmes, series }) => {
                         <div className="section-textil">
                             <h1>POLITIQUE DE CONFIDENTIALITÉ.</h1>
                             <div className="section-textil-info" style={{color:'#b3b5bf'}}>
-                                <span>Cette politique s'applique au site : droppy.now.sh</span>
+                                <span>Cette politique s'applique au site : droppy.ml</span>
                                 <span>Date de dernière mise à jour : 20 juillet 2020</span>
                             </div>
                             <div className="textil">
-                                <p>Le respect de votre vie privée est de la plus haute importance pour droppy.now.sh, qui est responsable de ce site.</p>
+                                <p>Le respect de votre vie privée est de la plus haute importance pour droppy.ml, qui est responsable de ce site.</p>
                                 <p>La présente politique de confidentialité a pour but de vous exposer:</p>
                                 <p>La manière dont sont collectés et traités vos renseignements personnels. Doivent être considérés comme renseignements personnels tous les renseignements susceptibles de vous identifier. Il s'agit notamment de votre prénom et nom, de votre âge, de votre adresse postale, de votre adresse courriel de votre localisation ou encore de votre adresse IP ;
                                 Quels sont vos droits concernant ces renseignements;
@@ -67,7 +67,7 @@ const PolitiqueDeConf = ({ filmes, series }) => {
                                 À qui ces renseignements sont transmis ;
                                 Éventuellement, la politique du site en matière de fichiers témoins ("cookies").
 Cette politique de confidentialité complète les Conditions générales d'utilisation que vous pouvez consulter à l'adresse ci-après :</p>
-                                <a target = "_blank" href='https://droppy.now.sh/CGU'>https://droppy.now.sh/CGU</a>
+                                <a target = "_blank" href='https://droppy.ml/CGU'>https://droppy.ml/CGU</a>
                             </div>
                             <h3>1. COLLECTE DE RENSEIGNEMENTS PERSONNELS</h3>
                             <div className="textil">
@@ -140,8 +140,8 @@ Dans le cas où vous décidez de désactiver les fichiers témoins, vous pourrez
                             <h3>7. RESPONSABLE DU TRAITEMENT DES RENSEIGNEMENTS PERSONNELS</h3>
                             <div className="textil">
                                 <strong>a) Le responsable du traitement des renseignements personnels</strong>
-                                <p>Le responsable du traitement des renseignements personnels est : droppy.now.sh. Il peut être contacté de la manière suivante :</p>
-                                <a target = "_blank" href="https://droppy.now.sh">droppy.now.sh</a>
+                                <p>Le responsable du traitement des renseignements personnels est : droppy.ml. Il peut être contacté de la manière suivante :</p>
+                                <a target = "_blank" href="https://droppy.ml">droppy.ml</a>
                                 <p>Le responsable du traitement des renseignements personnels est chargé de déterminer les finalités et les moyens mis au service du traitement des renseignements personnels</p>
                                 <strong>b) Obligations du responsable du traitement des renseignements personnels</strong>
                                 <p>Le responsable du traitement des renseignements personnels s'engage à protéger les renseignements personnels collectés, à ne pas les transmettre à des tiers sans que vous n'en ayez été informé(e) et à respecter les finalités pour lesquelles ces renseignements ont été collectés.
@@ -155,13 +155,13 @@ Dans le cas où l'intégrité, la confidentialité ou la sécurité de vos rense
                                 <p>Vous avez le droit de vous opposer au traitement de vos renseignements personnels par le site ("droit d'opposition"). Vous avez également le droit de demander à ce que vos renseignements personnels ne figurent plus, par exemple, dans une liste de diffusion ("droit de retrait").
 
 Afin de formuler une opposition au traitement de vos renseignements personnels ou demander le retrait de vos renseignements personnels, vous devez suivre la procédure suivante :</p>
-                                <a target = "_blank" href="https://droppy.now.sh">droppy.now.sh</a>
+                                <a target = "_blank" href="https://droppy.ml">droppy.ml</a>
                                 
                             </div>
                             <h3>9. DROIT D'ACCÈS, DE RECTIFICATION ET DE SUPPRESSION</h3>
                             <div className="textil">
                                 <p>Vous pouvez prendre connaissance, mettre à jour, modifier ou demander la suppression des renseignements vous concernant, en respectant la procédure ci-après énoncée :</p>
-                                <a target = "_blank" href="https://droppy.now.sh">droppy.now.sh</a>
+                                <a target = "_blank" href="https://droppy.ml">droppy.ml</a>
 
                             </div>
                             <h3>10. SÉCURITÉ</h3>
@@ -193,7 +193,7 @@ Afin de formuler une opposition au traitement de vos renseignements personnels o
                             <h3>12. CONDITIONS DE MODIFICATION DE LA POLITIQUE DE CONFIDENTIALITÉ</h3>
                             <div className="textil">
                                 <p>La présente politique de confidentialité peut être consulté à tout moment à l'adresse ci-après indiquée :</p>
-                                <a target = "_blank" href="https://droppy.now.sh/politique-de-confidentialite">https://droppy.now.sh/politique-de-confidentialite</a>
+                                <a target = "_blank" href="https://droppy.ml/Politique-de-confidentialite">https://droppy.ml/politique-de-confidentialite</a>
                                 <p>Nous nous réservons le droit de la modifier afin de garantir sa conformité avec le droit en vigueur.
 
 Par conséquent, vous êtes invité(e) à venir consulter régulièrement cette politique de confidentialité afin de vous tenir informé(e) des derniers changements qui lui seront apportés.

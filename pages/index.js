@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { GraphQLClient, request } from 'graphql-request';
+import { GraphQLClient, request, gql } from 'graphql-request';
 import Layout from '../components/Layout';
 import Carousel from 'react-multi-carousel';
 import { QueryContext } from '../components/FilmesContext'
@@ -11,7 +11,7 @@ import { QueryContext } from '../components/FilmesContext'
 export async function getStaticProps() {
     const graphcms = new GraphQLClient(process.env.API_URL); 
 
-    const { filmes } = await graphcms.request(
+    const { filmes } = await graphcms.request(gql
         `
             {
                 filmes (orderBy:year_DESC, last:500){
@@ -29,7 +29,7 @@ export async function getStaticProps() {
         `
     );
 
-    const { series } = await graphcms.request(
+    const { series } = await graphcms.request(gql
         `
             {
                 series (orderBy:year_DESC){
@@ -47,7 +47,7 @@ export async function getStaticProps() {
         `
     );
 
-    const trends = `{
+    const trends = gql`{
         filmes(orderBy: year_DESC, where: {stars_contains: "4"}){
             id
             type

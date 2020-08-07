@@ -1,13 +1,13 @@
 import Layout from '../components/Layout';
 import React,{useEffect,useState} from 'react';
 import { QueryContext } from '../components/FilmesContext';
-import { GraphQLClient } from 'graphql-request';
+import { GraphQLClient,gql } from 'graphql-request';
 
 
 export async function getStaticProps() {
     const graphcms = new GraphQLClient(process.env.API_URL); 
 
-    const { filmes } = await graphcms.request(
+    const { filmes } = await graphcms.request(gql
         `
             {
                 filmes (orderBy:year_DESC){
@@ -24,7 +24,7 @@ export async function getStaticProps() {
         `
     );
 
-const { series } = await graphcms.request(
+const { series } = await graphcms.request(gql
         `{series{title slug type year category cover{url}}}`
     )
 
@@ -55,7 +55,7 @@ const DMCA = ({ filmes, series }) => {
                         <div className="section-textil">
                             <h1>DMCA : </h1>
                             <div className="section-textil-info" style={{color:'#b3b5bf'}}>
-                                <span>Cette politique s'applique au site : droppy.now.sh</span>
+                                <span>Cette politique s'applique au site : droppy.ml</span>
                                 <span>Date de dernière mise à jour : 20 juillet 2020</span>
                             </div>
                             <div className="textil">
@@ -77,7 +77,7 @@ Les informations ci-dessus doivent être envoyées par notification écrite, té
                             </div>
                             <div className="section-textil-info">
                                 <span>Attention: bureau DMCA</span>
-                                <span>Contactez-nous: <a target = "_blank" href='https://droppy.now.sh/contact'>https://droppy.now.sh/contact</a></span>
+                                <span>Contactez-nous: <a target = "_blank" href='https://droppy.ml/contact'>https://droppy.ml/contact</a></span>
                             </div>
                             <div className="textil">
                                 <p style={{fontWeight:'600'}}>NOUS VOUS ATTENONS QUE, EN VERTU DE LA LOI FÉDÉRALE, SI VOUS CONNAISSEZ INTEMPORAMMENT QUE LE MATÉRIEL EN LIGNE VIENT DE FAIRE FAUNE, VOUS POUVEZ ÊTRE SOUMIS À DES PÉNALITÉS CIVILES FORTES. CELLES-CI COMPRENNENT LES DOMMAGES MONÉTAIRES, LES FRAIS DE JUSTICE ET LES PROCUREURS ENGAGÉS PAR NOUS, PAR TOUT PROPRIÉTAIRE DE COPYRIGHT OU PAR LE TITULAIRE DE LA TITULAIRE DE LA LICENCE DE DROIT AU COPYRIGHT OU DE TITULAIRE DE LA LICENCE, QUI EST BLESSÉ COMME RÉSULTAT DE NOTRE CONFIANCE À LA SUITE DE VOTRE MISREPRESENTATION. VOUS POUVEZ ÉGALEMENT ÊTRE SOUMIS À DES POURSUITES PÉNALES POUR LE PARJOUR.</p>
