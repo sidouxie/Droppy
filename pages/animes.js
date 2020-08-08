@@ -1,4 +1,5 @@
 import Layout from '../components/Layout';
+import Head from 'next/head';
 import React, {useEffect,useState} from 'react';
 import { QueryContext } from '../components/FilmesContext';
 import { GraphQLClient,gql } from 'graphql-request';
@@ -61,7 +62,10 @@ const animes = ({ filmes,series }) => {
 
     return ( 
             <QueryContext.Provider value={Query}>
-                <Layout>
+            <Layout>
+                <Head>
+                    <title>Droppy - Animes en tout exclusivité 2020.</title>
+                </Head>
                     <div className="container-fluid">
                         <div className="row">
                         <div className='section-images'>{filmes.slice(0, 4).map(({ title, slug, cover,year,category }) => (

@@ -1,4 +1,5 @@
 import Layout from '../components/Layout';
+import Head from 'next/head';
 import React,{useEffect,useState} from 'react';
 import { QueryContext } from '../components/FilmesContext';
 import { GraphQLClient,gql } from 'graphql-request';
@@ -48,6 +49,9 @@ const PolitiquesDeCookies = ({ filmes, series }) => {
     return ( 
             <QueryContext.Provider value={Query}>
             <Layout>
+                <Head>
+                    <title>Droppy - Politique de Cookies.</title>
+                </Head>
             <div className="section-head"></div>
                 
             <div className="container">

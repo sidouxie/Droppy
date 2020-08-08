@@ -109,12 +109,19 @@ const serie = ({ filmes, series, serie }) => {
         const data = setQuery([...filmes, ...series])
         return data
     }, [])
-    
+
     return(
         <React.Fragment>
             <QueryContext.Provider value={Query}>
                 <Layout>
-                    <Head><title>Droppy - Regardez {serie.title} en VF streaming gratuit.</title></Head>
+                    <Head>
+                        <title>Droppy - Regardez {serie.title} {serie.year} en VF streaming gratuit.</title>
+                        <meta name="description" content={`${serie.title} ${serie.year} & catégorie : ${serie.category} & réalisateur : ${serie.scenario} & note des spéctateurs : ${serie.stars}/5 & résumer : ${serie.description.slice(0,150)}...`}/>
+                        <meta name="keywords" content={`${serie.title} streaming vf, serie ${serie.year}, catégorie ${serie.category}, réalisateur ${serie.scenario}, voir serie ${serie.title} en streaming illimité, regardez serie ${serie.title} gratuit, ${serie.title} ${serie.year} sans pub, ${serie.title} saison ${serie.saisons.saison.length} en vf sur Mystream, ${serie.title} saison ${serie.saisons.saison.length} en vf sur Uptobox, ${serie.title} saison ${serie.saisons.saison.length} en vf sur Upstream, ${serie.title} saison ${serie.saisons.saison.length} complete en francais, ${serie.title} saison ${serie.saisons.saison.length} complete gratuit`}/>
+                        <meta property="og:title" content={`${serie.title} ${serie.year} streaming vf`} />
+                        <meta property="og:url" content={`https://droppy.ml/series/${serie.slug}`} />
+                        <meta property="og:description" content={`${serie.title} ${serie.year} & catégorie : ${serie.category} & réalisateur : ${serie.scenario} & note des spéctateurs : ${serie.stars}/5 & résumer : ${serie.description.slice(0,150)}...`}/>
+                    </Head>
                     <div className="bg-hero" >
                         <img src={serie.cover.url} alt={serie.cover.fileName} />
                     </div>

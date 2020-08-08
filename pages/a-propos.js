@@ -1,5 +1,6 @@
 import Layout from '../components/Layout';
-import React,{useEffect,useState} from 'react';
+import React, { useEffect, useState } from 'react';
+import Head from 'next/head';
 import { QueryContext } from '../components/FilmesContext';
 import { GraphQLClient,gql } from 'graphql-request';
 
@@ -47,7 +48,10 @@ const Apropos = ({ filmes, series }) => {
 
     return ( 
             <QueryContext.Provider value={Query}>
-        <Layout>
+            <Layout>
+                <Head>
+                    <title>Droppy - à propos.</title>
+                </Head>
             <div className="container-fluid">
                 <div className="row">
                     <h1>Bienvenue sur la page A propos.</h1>

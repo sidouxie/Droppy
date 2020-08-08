@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
 import { GraphQLClient, gql } from 'graphql-request';
 import Layout from '../components/Layout';
 import Carousel from 'react-multi-carousel';
@@ -106,8 +107,16 @@ const Index = ({ filmes, series, trendFilme }) => {
 
     return (
         <QueryContext.Provider value={ Query } >
-        <Layout>
-        <div className="fluid">
+            <Layout>
+                <Head>
+                    <title>Droppy - site streaming VF Filmes, Séries, Animes en français gratuit.</title>
+                    <meta name="description" content="Retrouvez tout vos filmes, séries, animes préférer en streaming gratuit, illimité et soyez les premiers à voir les derniers épisodes en exclusivité sur Droppy." />
+                    <meta name="keywords" content="filmes streaming, séries streaming, animes streaming, streaming en illimité, qualité en haut définition, épisodes en version française, streaming en VF, exclusivité " />
+                    <meta property="og:title" content="Droppy - site streaming VF Filmes, Séries, Animes en français gratuit." />
+                    <meta property="og:url" content="https://droppy.ml" />
+                    <meta property="og:description" content="Retrouvez tout vos filmes, séries, animes préférer en streaming gratuit, illimité et soyez les premiers à voir les derniers épisodes en exclusivité sur Droppy." />
+                </Head>
+        <div className="fluid" itemScope itemType ="http://schema.org/Movie">
             <div className="image-fluid">
                 <div id='bgImage' className="img-fluid"></div>
                 <div className="sectionText">
@@ -131,19 +140,17 @@ const Index = ({ filmes, series, trendFilme }) => {
                 transitionDuration={300}
             >
             {Trends.filmes.slice(0,10).map(({ id, title, slug, cover, category, year }) => (
-                <div key={id} className="container-card">
-                    <Link href={`/filmes/${slug}`} ><img className="carouselCard" src={cover.url} alt={title} /></Link>
+                <div key={id} className="container-card" itemScope itemType="http://schema.org/Movie">
+                    <Link href={`/filmes/${slug}`}><img className="carouselCard" src={cover.url} alt={title} itemProp="image" /></Link>
 
                     <div className="info-card">
-                        <h5> {title} </h5>
-                            <p> {category}, {year}</p>
+                        <h5 itemProp="name"> {title} </h5>
+                            <p itemProp="genre"> {category}, {year}</p>
                         
                         </div>           
                 </div>
         ))}
         </Carousel>
-
-        {/* Dernier filme Rajouté */}
                 
         <div className="titre-desc">
             <h3>Dernier filme rajouté : </h3>

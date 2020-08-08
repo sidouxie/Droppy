@@ -1,5 +1,6 @@
 import Layout from '../components/Layout';
-import React, {useEffect,useState} from 'react';
+import React, { useEffect, useState } from 'react';
+import Head from 'next/head';
 import { QueryContext } from '../components/FilmesContext';
 import { GraphQLClient,gql } from 'graphql-request';
 import FilmesPost from '../components/FilmesPost';
@@ -61,6 +62,9 @@ const Filmes = ({ filmes,series }) => {
     return ( 
             <QueryContext.Provider value={Query}>
                 <Layout>
+                    <Head>
+                    <title>Droppy - Filmes en tout exclusivité 2020.</title>
+                    </Head>
                     <div className="container-fluid">
                         <div className="row">
                         <div className='section-images'>{filmes.slice(0, 4).map(({ title, slug, cover,year,category }) => (
