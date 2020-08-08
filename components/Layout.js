@@ -15,6 +15,7 @@ const Layout = (props) => {
                     <meta property="og:locale" content="fr_FR" />
                     <meta property="og:site_name" content="Droppy" />
                     <meta name="twitter:card" content="summary" />
+                    <meta name="twitter:image" content="https://droppy.ml/static/og_droppy.jpg" />
                     <meta name="twitter:site" content="Droppy" />
                     <meta name="twitter:title" content="Droppy - site streaming VF Filmes, Séries, Animes en français gratuit." />
                     <meta name="twitter:description" content="Retrouvez tout vos filmes, séries, animes préférer en streaming gratuit, illimité et soyez les premiers à voir les derniers épisodes en exclusivité sur Droppy." />
