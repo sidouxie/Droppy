@@ -4,7 +4,7 @@ import AdBlockDetect from 'react-ad-block-detect';
 import PropTypes from 'prop-types';
 
 
-//rajout des filmes
+// filmes
 
 export async function getServerSideProps({ ctx }) {
     const cookies = parseCookies(ctx)
