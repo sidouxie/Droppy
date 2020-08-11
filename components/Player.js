@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { parseCookies, setCookie, destroyCookie } from 'nookies';
+import React, { useState } from 'react';
+import { parseCookies, setCookie } from 'nookies';
 import AdBlockDetect from 'react-ad-block-detect';
 import PropTypes from 'prop-types';
 
