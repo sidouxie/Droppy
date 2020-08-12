@@ -586,7 +586,7 @@ label{
             height: 100%;
             top: 0;
             left: 0;
-            background: linear-gradient(0deg, rgba(0,0,0,0.95) 0%, rgba(0, 0, 0, 0.45) 40%, transparent);
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.65) 25%, transparent);
             z-index: 1;
         }
 
@@ -604,7 +604,7 @@ label{
             position: absolute;
             width: max-content;
             height: max-content;
-            bottom: 0%;
+            bottom: -3%;
             z-index: 2;
 
             display: flex;
@@ -673,6 +673,55 @@ label{
             color: #f4f4f4;
             font-size: larger;
             font-weight: 600;
+        }
+    }
+}
+
+.react-multi-carousel-track{
+    width: 100%;
+    height: 100%;
+
+    .react-multi-carousel-item{
+        width: inherit;
+        height: inherit;
+
+        .container-card{
+            width: 375px;
+            height: 420px;
+            position: relative;
+
+            &::after{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.65) 25%, transparent);
+                z-index: 1;
+            }
+
+            .carouselCard{
+                width: 100%;
+                height: 100%;
+            }
+
+            .info-card{
+                position: absolute;
+                width: max-content;
+                height: max-content;
+                bottom: 0;
+                z-index: 2;
+
+                h5{
+                    font-size: 1.35em;
+                    margin-bottom: 0;
+                }
+
+                p{
+                    font-size: 1em;
+                }
+            }
         }
     }
 }
