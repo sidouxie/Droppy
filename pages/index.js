@@ -120,7 +120,7 @@ const Index = ({ filmes, series, trendFilme }) => {
             <div className="image-fluid">
                 <div id='bgImage' className="img-fluid"></div>
                 <div className="sectionText">
-                    <h1>Droppy site streaming en VF gratuit</h1>
+                    <h1>Droppy platforme de streaming en VF</h1>
                     <h2>Regardez tout vos Filmes, séries, animes préférer gratuitement.</h2>
                 </div>
                 <div className="scroll"></div>
