@@ -146,7 +146,6 @@ const Index = ({ filmes, series, trendFilme }) => {
                     <div className="info-card">
                         <h5 itemProp="name"> {title} </h5>
                             <p itemProp="genre"> {category}, {year}</p>
-                        
                         </div>           
                 </div>
         ))}
