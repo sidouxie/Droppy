@@ -2,6 +2,9 @@
     .container-items{
         grid-template-columns: 1fr 1fr;
     }
+    .sectionText{
+        padding-left: 2em !important;
+    }
     .sectionText h1{
         font-size: 2.6em !important;
     }
@@ -25,12 +28,20 @@
     .container-items{
         grid-template-columns: 1fr 1fr 1fr;
     }
+
+    .sectionText{
+        padding-left: 4em !important;
+    }
 }
 
 @media only screen and (min-width: 800px) {
     
     .container-items{
         grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .sectionText{
+        padding-left: 5em !important;
     }
 
 }
@@ -49,5 +60,8 @@
 @media only screen and (min-width: 1000px) {
     .container-items{
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+    .sectionText{
+        padding-left: 8.5em !important;
     }
 }

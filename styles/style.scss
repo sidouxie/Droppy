@@ -683,12 +683,12 @@ label{
     height: 100%;
 
     .react-multi-carousel-item{
-        width: inherit;
-        height: inherit;
+        width: 375px;
+        height: 420px;
 
         .container-card{
-            width: 375px;
-            height: 420px;
+            width: inherit;
+            height: inherit;
             position: relative;
 
             &::after{
@@ -698,7 +698,7 @@ label{
                 height: 30%;
                 bottom: 0;
                 left: 0;
-                background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.65) 60%, transparent);
+                background: linear-gradient(0deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.75) 60%, transparent);
                 z-index: 1;
             }
 

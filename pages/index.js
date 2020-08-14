@@ -109,10 +109,10 @@ const Index = ({ filmes, series, trendFilme }) => {
         <QueryContext.Provider value={ Query } >
             <Layout>
                 <Head>
-                    <title>Droppy - site streaming VF Filmes, Séries, Animes en français gratuit.</title>
+                    <title>Droppy - Platforme de streaming français</title>
                     <meta name="description" content="Retrouvez tout vos filmes, séries, animes préférer en streaming gratuit, illimité et soyez les premiers à voir les derniers épisodes en exclusivité sur Droppy." />
                     <meta name="keywords" content="filmes streaming, séries streaming, animes streaming, streaming en illimité, qualité en haut définition, épisodes en version française, streaming en VF, exclusivité " />
-                    <meta property="og:title" content="Droppy - site streaming VF Filmes, Séries, Animes en français gratuit." />
+                    <meta property="og:title" content="Droppy - Platforme de streaming français" />
                     <meta property="og:url" content="https://droppy.ml" />
                     <meta property="og:description" content="Retrouvez tout vos filmes, séries, animes préférer en streaming gratuit, illimité et soyez les premiers à voir les derniers épisodes en exclusivité sur Droppy." />
                 </Head>
@@ -121,7 +121,7 @@ const Index = ({ filmes, series, trendFilme }) => {
                 <div id='bgImage' className="img-fluid"></div>
                 <div className="sectionText">
                     <h1>Droppy platforme de streaming en VF</h1>
-                    <h2>Regardez tout vos Filmes, séries, animes préférer gratuitement.</h2>
+                    <h2>Regardez tout vos Filmes, séries, anime préférer gratuitement et en toute exclusivité.</h2>
                 </div>
                 <div className="scroll"></div>
             </div>

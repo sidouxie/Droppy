@@ -102,7 +102,7 @@ const filme = ({ filmes, filme, series }) => {
             <QueryContext.Provider value={Query}>
                 <Layout>
                     <Head>
-                        <title>Droppy - Regardez {filme.title} {filme.year} en VF streaming gratuit.</title>
+                        <title>Droppy - {filme.title} {filme.year} en VF streaming gratuit.</title>
                         <meta name="description" content={`${filme.title} ${filme.year} & catégorie : ${filme.category} & réalisateur : ${filme.scenario} & note des spéctateurs : ${filme.stars}/5 & résumer : ${filme.description.slice(0,150)}...`}/>
                         <meta name="keywords" content={`${filme.title} streaming vf, filme ${filme.year}, catégorie ${filme.category}, réalisateur ${filme.scenario}, durée filme ${filme.duree} min, voir filme ${filme.title} en streaming illimité, regardez filme ${filme.title} gratuit, ${filme.title} ${filme.year} sans pub, ${filme.title} en vf sur Mystream, ${filme.title} en vf sur Uptobox, ${filme.title} en vf sur Upstream, ${filme.title} complete en francais, ${filme.title} complete gratuit`}/>
                         <meta property="og:title" content={`${filme.title} ${filme.year} streaming vf`} />
