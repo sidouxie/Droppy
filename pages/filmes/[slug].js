@@ -47,6 +47,7 @@ export async function getStaticProps({ params }) {
                 duree
                 apiurl
                 urlCode
+                uqload
                 poster
                 cover {
                     id
