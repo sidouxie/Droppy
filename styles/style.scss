@@ -412,10 +412,10 @@ label{
     }
     .change-player-menu{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
         list-style: none;
-        justify-content: space-between;
+        justify-content: space-around;
         color: #fff;
         padding: 2em;
 
@@ -426,8 +426,13 @@ label{
         padding: 0.5em;
         cursor: pointer;
         text-transform: uppercase;
-        letter-spacing: 7px;
+        letter-spacing: 3px;
         transition: all .3s ease-in-out;
+        margin: 0.5em;
+        align-self: center;
+        width: 40%;
+        height: auto;
+        text-align: center;
 
         &.active{
             //border: 2px solid #ffaa0e;
@@ -441,6 +446,11 @@ label{
         padding: 0.5em;
         cursor: pointer;
         transition: all .3s ease-in-out;
+        margin: 0.5em;
+        align-self: center;
+        width: 40%;
+        height: auto;
+        text-align: center;
 
         &.active{
             //border: 1px solid #232529;
@@ -454,6 +464,11 @@ label{
         padding: 0.5em;
         cursor: pointer;
         transition: all .3s ease-in-out;
+        margin: 0.5em;
+        align-self: center;
+        width: 40%;
+        height: auto;
+        text-align: center;
 
         &.active{
             //border: 1px solid #232529;
