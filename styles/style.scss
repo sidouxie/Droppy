@@ -871,3 +871,82 @@ label{
         }
     }
 }
+
+.section-head-about{
+    width: 100%;
+    height: 60vh;
+    background-image: url(../images/BG-about-1.jpg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    overflow: hidden;
+    filter: blur(2px), brightness(75%);
+
+    &::after{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: inherit;
+        top: 0;
+        left: 0;
+        background: linear-gradient(0deg, rgba(0, 0, 0,0.85),transparent);
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .about-title{
+        position: absolute;
+        z-index: 2;
+        display: flex;
+        width: inherit;
+        height: inherit;
+        align-items: center;
+        justify-content: center;
+
+        h1{
+            color: #fff;
+            font-weight: 700;
+            padding: 0.5em;
+            letter-spacing: 0.5px;
+            text-shadow: 0px 0px 1px #000;
+        }
+    }
+}
+
+.section-head-about-second{
+    width: 100%;
+    height: 45vh;
+    background-image: url(../images/BG-about-2.jpg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    overflow: hidden;
+    filter: blur(2px), brightness(75%);
+
+    &::after{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: inherit;
+        background: linear-gradient(180deg, rgba(0, 0, 0,0.85),transparent);
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .about-title{
+        position: absolute;
+        z-index: 2;
+        display: flex;
+        width: inherit;
+        height: inherit;
+        align-items: center;
+        justify-content: center;
+
+        h2{
+            color: #fff;
+            font-weight: 100;
+            padding: 0.5em;
+            text-shadow: 0px 0px 1px #000;
+        }
+    }
+}
