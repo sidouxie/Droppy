@@ -50,7 +50,7 @@ const PolitiquesDeCookies = ({ filmes, series }) => {
             <QueryContext.Provider value={Query}>
             <Layout>
                 <Head>
-                    <title>Droppy - Politique de Cookies.</title>
+                    <title>Droppy - Politique de Cookies</title>
                 </Head>
             <div className="section-head"></div>
                 

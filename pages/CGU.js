@@ -50,7 +50,7 @@ const CGU = ({ filmes, series }) => {
             <QueryContext.Provider value={Query}>
             <Layout>
                 <Head>
-                    <title>Droppy - Conditions générales d'utilisation.</title>
+                    <title>Droppy - Conditions générales d'utilisation</title>
                 </Head>
             <div className="section-head"></div>
             <div className="container">

@@ -50,7 +50,7 @@ const PolitiqueDeConf = ({ filmes, series }) => {
             <QueryContext.Provider value={Query}>
             <Layout>
                 <Head>
-                    <title>Droppy - Politique de Confidentialité.</title>
+                    <title>Droppy - Politique de Confidentialité</title>
                 </Head>
             <div className="section-head"></div>
                 

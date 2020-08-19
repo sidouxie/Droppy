@@ -50,7 +50,7 @@ const DMCA = ({ filmes, series }) => {
             <QueryContext.Provider value={Query}>
             <Layout>
                 <Head>
-                    <title>Droppy - DMCA.</title>
+                    <title>Droppy - DMCA</title>
                 </Head>
             <div className="section-head"></div>
                 

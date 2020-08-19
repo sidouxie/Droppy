@@ -65,7 +65,7 @@ const series = ({ filmes, series }) => {
             <QueryContext.Provider value={Query}>
             <Layout>
                 <Head>
-                    <title>Droppy - Séries en tout exclusivité 2020.</title>
+                    <title>Droppy - Séries en tout exclusivité 2020</title>
                 </Head>
         <div className="container-fluid">
                         <div className="row">

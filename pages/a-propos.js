@@ -50,7 +50,7 @@ const Apropos = ({ filmes, series }) => {
             <QueryContext.Provider value={Query}>
             <Layout>
                 <Head>
-                    <title>Droppy - à propos.</title>
+                    <title>Droppy - à propos</title>
                 </Head>
 
                 <div className="section-head-about">
@@ -65,7 +65,8 @@ const Apropos = ({ filmes, series }) => {
                                 <span>Conçu avec les dernières technos qui existe en ce moment, Droppy offre à ces web spectateurs le meilleur en matière d'expérience utilisateur pour passer un agréable moment.</span>
                             </div>
                             
-                            <h3>Mon histoire avec Droppy</h3>
+                            <h2>Mon histoire avec Droppy</h2>
+                            <span className="subtitle">Le storytalling ce n'est pas mon fort encore moins le copywriters.</span>
                             
                             <div className="textil">
                                 <p>Au temps du confinement comme tout le monde j’ai passé mes journées à regarder des filmes et séries sur des sites de streaming gratuits, mais souvent le souci avec ces sites c’est que la majorité des temps ils sont en manque d’optimisation ou souvent mal codé ou ces pop-up qui sortent de nulle part chaque seconde ou ont cliqué et leur sécurité qui laisse à désirer.</p>
@@ -77,7 +78,7 @@ const Apropos = ({ filmes, series }) => {
                 </div>
                 <div className="section-head-about-second">
                     <div className="about-title">
-                        <h2>Pourquoi choisir de regarder sont filme préférée sur Droppy plutôt que sur d’autre sites ?</h2>
+                        <h2>Pourquoi choisir Droppy plutôt que d’autre sites ?</h2>
                     </div>
                 </div>
                 <div className="container">
