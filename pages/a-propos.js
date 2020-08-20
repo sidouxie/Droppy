@@ -56,6 +56,7 @@ const Apropos = ({ filmes, series }) => {
                 <div className="section-head-about">
                     <div className="about-title">
                         <h1>Plateforme de streaming la plus légère</h1>
+                        <p className="subtitle">plus léger qu'une plume</p>
                     </div>
             </div>
             <div className="container">
