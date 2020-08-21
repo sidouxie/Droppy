@@ -20,11 +20,10 @@ const Layout = (props) => {
                     <meta name="twitter:title" content="Droppy - Platforme de streaming français" />
                     <meta name="twitter:description" content="Retrouvez tout vos filmes, séries, animes préférer en streaming gratuit, illimité et soyez les premiers à voir les derniers épisodes en exclusivité sur Droppy." />
                     <link name="canonical" href="https://droppy.ml" />
-                    <link rel="shortcut icon" href="/static/droppy_favicon.ico"></link>
-                    <link rel="apple-touch-icon" sizes="180x180" href='/static/droppy_favicon.ico' ></link>
-                    <link rel="icon" type="image/png" sizes="72x72" href="/static/droppy_favicon.ico" ></link>
-                    <link rel="icon" type="image/png" sizes="32x32" href="/static/droppy_favicon.ico" ></link>
-                    <link rel="icon" type="image/png" sizes="16x16" href="/static/droppy_favicon.ico" ></link>
+                    <link rel="shortcut icon" href="/static/droppy-favicon-48.png"></link>
+                    <link rel="apple-touch-icon" sizes="180x180" href='/static/droppy-favicon-180.png' ></link>
+                    <link rel="icon" type="image/png" sizes="32x32" href="/static/droppy-favicon-32.png" ></link>
+                    <link rel="icon" type="image/png" sizes="16x16" href="/static/droppy-favicon-16.png" ></link>
                     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossOrigin="anonymous"></link>
                     
 

@@ -47,7 +47,7 @@ const PlayerFilme = ({filme}) => {
             </div>
         
             <div className="change-player">
-                <h3>Choix de Platforme : </h3>
+                <h3>Choix du serveur : </h3>
                 <ul className="change-player-menu">
                     <li className={`change-player-item ${isChange()}`} onClick={() => setChange(1)}><span style={{color:'#f7db61'}}>My</span>stream</li>
                     <li className={`change-player-item-up ${isUpstream()}`} onClick={() => setChange(2)}><span style={{color:'#02b9c0'}}>Up</span>stream</li>

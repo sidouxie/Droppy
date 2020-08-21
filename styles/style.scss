@@ -125,6 +125,7 @@ $body-color: #090a0c;
 
 .info-card{
     display: flex;
+    width: inherit !important;
     flex-direction: column;
     padding: 1em;
     text-align: center;
