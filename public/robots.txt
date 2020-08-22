@@ -1,0 +1,7 @@
+Sitemap: https://droppy.ml/sitemap.xml
+
+User-agent: *
+Allow: /*
+
+Disallow: /static/
+Disallow: /static/*
