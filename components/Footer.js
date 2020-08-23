@@ -15,7 +15,7 @@ function Footer() {
                 </div>
                 <span className="ligne" ></span>
 
-                <span className="footer-text"><span style={{fontWeight:'600'}}>Droppy ™ 2020</span>, Designer <a target = "_blank" href="https://www.xn--changedeliens-9gb.com" >&</a> codé avec 💙</span>
+                <span className="footer-text"><span style={{fontWeight:'600'}}>Droppy ™ 2020</span>, Designer <a target = "_blank" href="https://www.xn--changedeliens-9gb.com" >&</a> <a target = "_blank" href="http://www.boostersite.com" >.</a>codé avec <a target="_blank" href="http://www.robothumb.com">💙</a></span>
                 
                 <span className="footer-logo"><img src='/static/new-droppy.svg' alt='Droppy logo' style={{ width:'70px'}} /></span>
 
