@@ -6,7 +6,7 @@ import Layout from '../components/Layout';
 import Carousel from 'react-multi-carousel';
 import { QueryContext } from '../components/FilmesContext'
 
-// ajout 17/08 filmes
+// ajout 01/09 lucifer
 
 
 export async function getStaticProps() {
